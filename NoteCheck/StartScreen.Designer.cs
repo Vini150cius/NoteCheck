@@ -34,16 +34,16 @@ namespace NoteCheck
         {
             this.pnlBack = new System.Windows.Forms.Panel();
             this.pnlProgram = new System.Windows.Forms.Panel();
+            this.btnStatus = new System.Windows.Forms.Button();
+            this.btnHistorico = new System.Windows.Forms.Button();
+            this.btnEntregar = new System.Windows.Forms.Button();
+            this.lblBoasVindas = new System.Windows.Forms.Label();
+            this.btnRetirar = new System.Windows.Forms.Button();
             this.pnlControles = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.lblBoasVindas = new System.Windows.Forms.Label();
-            this.lblLogo = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnRetirar = new System.Windows.Forms.Button();
-            this.btnEntregar = new System.Windows.Forms.Button();
-            this.btnHistorico = new System.Windows.Forms.Button();
-            this.btnStatus = new System.Windows.Forms.Button();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlControles.SuspendLayout();
@@ -61,7 +61,7 @@ namespace NoteCheck
             this.pnlBack.Controls.Add(this.pnlProgram);
             this.pnlBack.Location = new System.Drawing.Point(0, 0);
             this.pnlBack.Name = "pnlBack";
-            this.pnlBack.Size = new System.Drawing.Size(1082, 535);
+            this.pnlBack.Size = new System.Drawing.Size(1080, 535);
             this.pnlBack.TabIndex = 0;
             this.pnlBack.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBack_Paint);
             // 
@@ -76,11 +76,67 @@ namespace NoteCheck
             this.pnlProgram.Controls.Add(this.lblBoasVindas);
             this.pnlProgram.Controls.Add(this.btnRetirar);
             this.pnlProgram.Controls.Add(this.pnlControles);
-            this.pnlProgram.Location = new System.Drawing.Point(57, 12);
+            this.pnlProgram.Location = new System.Drawing.Point(56, 12);
             this.pnlProgram.Name = "pnlProgram";
             this.pnlProgram.Size = new System.Drawing.Size(969, 510);
             this.pnlProgram.TabIndex = 2;
             this.pnlProgram.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlProgram_Paint);
+            // 
+            // btnStatus
+            // 
+            this.btnStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
+            this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatus.Location = new System.Drawing.Point(296, 322);
+            this.btnStatus.Name = "btnStatus";
+            this.btnStatus.Size = new System.Drawing.Size(377, 44);
+            this.btnStatus.TabIndex = 7;
+            this.btnStatus.Text = "Status dos notebooks";
+            this.btnStatus.UseVisualStyleBackColor = false;
+            // 
+            // btnHistorico
+            // 
+            this.btnHistorico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
+            this.btnHistorico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorico.Location = new System.Drawing.Point(296, 401);
+            this.btnHistorico.Name = "btnHistorico";
+            this.btnHistorico.Size = new System.Drawing.Size(377, 44);
+            this.btnHistorico.TabIndex = 6;
+            this.btnHistorico.Text = "Histórico de retirada";
+            this.btnHistorico.UseVisualStyleBackColor = false;
+            // 
+            // btnEntregar
+            // 
+            this.btnEntregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
+            this.btnEntregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntregar.Location = new System.Drawing.Point(296, 243);
+            this.btnEntregar.Name = "btnEntregar";
+            this.btnEntregar.Size = new System.Drawing.Size(377, 44);
+            this.btnEntregar.TabIndex = 5;
+            this.btnEntregar.Text = "Entregar notebooks";
+            this.btnEntregar.UseVisualStyleBackColor = false;
+            // 
+            // lblBoasVindas
+            // 
+            this.lblBoasVindas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblBoasVindas.AutoSize = true;
+            this.lblBoasVindas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
+            this.lblBoasVindas.Location = new System.Drawing.Point(405, 102);
+            this.lblBoasVindas.Name = "lblBoasVindas";
+            this.lblBoasVindas.Size = new System.Drawing.Size(86, 13);
+            this.lblBoasVindas.TabIndex = 1;
+            this.lblBoasVindas.Text = "Seja bem vindo!!";
+            // 
+            // btnRetirar
+            // 
+            this.btnRetirar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
+            this.btnRetirar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRetirar.Location = new System.Drawing.Point(296, 164);
+            this.btnRetirar.Name = "btnRetirar";
+            this.btnRetirar.Size = new System.Drawing.Size(377, 44);
+            this.btnRetirar.TabIndex = 4;
+            this.btnRetirar.Text = "Retirar notebooks";
+            this.btnRetirar.UseVisualStyleBackColor = false;
+            this.btnRetirar.Click += new System.EventHandler(this.btnRetirar_Click);
             // 
             // pnlControles
             // 
@@ -93,6 +149,27 @@ namespace NoteCheck
             this.pnlControles.Name = "pnlControles";
             this.pnlControles.Size = new System.Drawing.Size(969, 40);
             this.pnlControles.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::NoteCheck.Properties.Resources.logoBeta;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 33);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblLogo
+            // 
+            this.lblLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblLogo.AutoSize = true;
+            this.lblLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
+            this.lblLogo.Location = new System.Drawing.Point(53, 4);
+            this.lblLogo.Name = "lblLogo";
+            this.lblLogo.Size = new System.Drawing.Size(61, 13);
+            this.lblLogo.TabIndex = 2;
+            this.lblLogo.Text = "NoteCheck";
             // 
             // btnMinimizar
             // 
@@ -129,83 +206,6 @@ namespace NoteCheck
             this.btnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
-            // lblBoasVindas
-            // 
-            this.lblBoasVindas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblBoasVindas.AutoSize = true;
-            this.lblBoasVindas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.lblBoasVindas.Location = new System.Drawing.Point(405, 102);
-            this.lblBoasVindas.Name = "lblBoasVindas";
-            this.lblBoasVindas.Size = new System.Drawing.Size(86, 13);
-            this.lblBoasVindas.TabIndex = 1;
-            this.lblBoasVindas.Text = "Seja bem vindo!!";
-            // 
-            // lblLogo
-            // 
-            this.lblLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lblLogo.AutoSize = true;
-            this.lblLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.lblLogo.Location = new System.Drawing.Point(53, 4);
-            this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(61, 13);
-            this.lblLogo.TabIndex = 2;
-            this.lblLogo.Text = "NoteCheck";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::NoteCheck.Properties.Resources.logoBeta;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 33);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnRetirar
-            // 
-            this.btnRetirar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.btnRetirar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRetirar.Location = new System.Drawing.Point(296, 164);
-            this.btnRetirar.Name = "btnRetirar";
-            this.btnRetirar.Size = new System.Drawing.Size(377, 44);
-            this.btnRetirar.TabIndex = 4;
-            this.btnRetirar.Text = "Retirar notebooks";
-            this.btnRetirar.UseVisualStyleBackColor = false;
-            this.btnRetirar.Click += new System.EventHandler(this.btnRetirar_Click);
-            // 
-            // btnEntregar
-            // 
-            this.btnEntregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.btnEntregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEntregar.Location = new System.Drawing.Point(296, 243);
-            this.btnEntregar.Name = "btnEntregar";
-            this.btnEntregar.Size = new System.Drawing.Size(377, 44);
-            this.btnEntregar.TabIndex = 5;
-            this.btnEntregar.Text = "Entregar notebooks";
-            this.btnEntregar.UseVisualStyleBackColor = false;
-            // 
-            // btnHistorico
-            // 
-            this.btnHistorico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.btnHistorico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistorico.Location = new System.Drawing.Point(296, 401);
-            this.btnHistorico.Name = "btnHistorico";
-            this.btnHistorico.Size = new System.Drawing.Size(377, 44);
-            this.btnHistorico.TabIndex = 6;
-            this.btnHistorico.Text = "Histórico de retirada";
-            this.btnHistorico.UseVisualStyleBackColor = false;
-            // 
-            // btnStatus
-            // 
-            this.btnStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStatus.Location = new System.Drawing.Point(296, 322);
-            this.btnStatus.Name = "btnStatus";
-            this.btnStatus.Size = new System.Drawing.Size(377, 44);
-            this.btnStatus.TabIndex = 7;
-            this.btnStatus.Text = "Status dos notebooks";
-            this.btnStatus.UseVisualStyleBackColor = false;
             // 
             // StartScreen
             // 

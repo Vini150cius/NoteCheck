@@ -91,7 +91,11 @@ namespace NoteCheck
 
         private void btnRetirar_Click(object sender, EventArgs e)
         {
-
+            string action = "Retirar";
+            LoginProfessor login = new LoginProfessor(action);
+            this.Hide();
+            login.ShowDialog();
+            this.Dispose();
         }
 
     }
