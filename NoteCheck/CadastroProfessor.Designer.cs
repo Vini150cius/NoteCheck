@@ -30,6 +30,7 @@
         {
             this.pnlBack = new System.Windows.Forms.Panel();
             this.pnlProgram = new System.Windows.Forms.Panel();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.lblCampoNome = new System.Windows.Forms.Label();
             this.lblCampoSenhaMestre = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -46,7 +47,6 @@
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.btnVoltar = new System.Windows.Forms.Button();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlControles.SuspendLayout();
@@ -90,10 +90,21 @@
             this.pnlProgram.Size = new System.Drawing.Size(969, 510);
             this.pnlProgram.TabIndex = 3;
             // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Location = new System.Drawing.Point(27, 63);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(87, 27);
+            this.btnVoltar.TabIndex = 14;
+            this.btnVoltar.Text = "‬Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            // 
             // lblCampoNome
             // 
             this.lblCampoNome.AutoSize = true;
-            this.lblCampoNome.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold);
+            this.lblCampoNome.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCampoNome.Location = new System.Drawing.Point(166, 222);
             this.lblCampoNome.Name = "lblCampoNome";
             this.lblCampoNome.Size = new System.Drawing.Size(209, 17);
@@ -103,7 +114,7 @@
             // lblCampoSenhaMestre
             // 
             this.lblCampoSenhaMestre.AutoSize = true;
-            this.lblCampoSenhaMestre.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold);
+            this.lblCampoSenhaMestre.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCampoSenhaMestre.Location = new System.Drawing.Point(205, 173);
             this.lblCampoSenhaMestre.Name = "lblCampoSenhaMestre";
             this.lblCampoSenhaMestre.Size = new System.Drawing.Size(169, 17);
@@ -136,11 +147,11 @@
             // 
             this.lblBoasVindas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBoasVindas.AutoSize = true;
-            this.lblBoasVindas.Font = new System.Drawing.Font("Bebas Neue", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBoasVindas.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBoasVindas.ForeColor = System.Drawing.Color.Black;
             this.lblBoasVindas.Location = new System.Drawing.Point(372, 117);
             this.lblBoasVindas.Name = "lblBoasVindas";
-            this.lblBoasVindas.Size = new System.Drawing.Size(241, 32);
+            this.lblBoasVindas.Size = new System.Drawing.Size(261, 32);
             this.lblBoasVindas.TabIndex = 8;
             this.lblBoasVindas.Text = "Cadastro de professores";
             // 
@@ -157,7 +168,7 @@
             // lblCampoSenha
             // 
             this.lblCampoSenha.AutoSize = true;
-            this.lblCampoSenha.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold);
+            this.lblCampoSenha.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCampoSenha.Location = new System.Drawing.Point(163, 271);
             this.lblCampoSenha.Name = "lblCampoSenha";
             this.lblCampoSenha.Size = new System.Drawing.Size(212, 17);
@@ -169,6 +180,7 @@
             this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(73)))), ((int)(((byte)(96)))));
             this.btnCadastrar.FlatAppearance.BorderSize = 0;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrar.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
             this.btnCadastrar.Location = new System.Drawing.Point(381, 372);
             this.btnCadastrar.Name = "btnCadastrar";
@@ -280,17 +292,6 @@
             this.btnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(27, 63);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(87, 27);
-            this.btnVoltar.TabIndex = 14;
-            this.btnVoltar.Text = "‬Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
             // 
             // CadastroProfessor
             // 
