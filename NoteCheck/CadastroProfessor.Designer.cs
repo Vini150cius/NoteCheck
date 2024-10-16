@@ -46,6 +46,7 @@
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlControles.SuspendLayout();
@@ -71,6 +72,7 @@
             this.pnlProgram.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlProgram.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
+            this.pnlProgram.Controls.Add(this.btnVoltar);
             this.pnlProgram.Controls.Add(this.lblCampoNome);
             this.pnlProgram.Controls.Add(this.lblCampoSenhaMestre);
             this.pnlProgram.Controls.Add(this.txtNome);
@@ -279,6 +281,17 @@
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Location = new System.Drawing.Point(27, 63);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(87, 27);
+            this.btnVoltar.TabIndex = 14;
+            this.btnVoltar.Text = "‬Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            // 
             // CadastroProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,5 +333,6 @@
         private System.Windows.Forms.Label lblCampoSenhaMestre;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtSenhaMestre;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }

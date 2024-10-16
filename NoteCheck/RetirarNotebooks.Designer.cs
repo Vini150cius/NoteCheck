@@ -37,6 +37,7 @@
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlControles.SuspendLayout();
@@ -97,6 +98,7 @@
             // pnlControles
             // 
             this.pnlControles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(73)))), ((int)(((byte)(96)))));
+            this.pnlControles.Controls.Add(this.label1);
             this.pnlControles.Controls.Add(this.imgLogo);
             this.pnlControles.Controls.Add(this.lblLogo);
             this.pnlControles.Controls.Add(this.btnMinimizar);
@@ -161,6 +163,18 @@
             this.btnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFechar.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(424, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 31);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "oi magali";
+            // 
             // RetirarNotebooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,5 +206,6 @@
         private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.Label label1;
     }
 }
