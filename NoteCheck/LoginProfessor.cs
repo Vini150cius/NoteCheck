@@ -9,7 +9,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data;
 using MySql.Data.MySqlClient;
 namespace NoteCheck
 {
@@ -47,6 +46,8 @@ namespace NoteCheck
             lblCampoSenha.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
             txtNome.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
             txtSenha.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
+            btnEntrar.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
+            btnCadastrar.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
         }
 
         public LoginProfessor(string action)
@@ -55,7 +56,6 @@ namespace NoteCheck
             LoadFontBebas();
             LoadFontLouis();
             Action = action;
-            lblAcao.Text = action;
         }
 
         private void LoginProfessor_Load(object sender, EventArgs e)
@@ -66,6 +66,11 @@ namespace NoteCheck
                 (0, 0, txtNome.Width, txtNome.Height, 10, 10));
             txtSenha.Region = Region.FromHrgn(CreateRoundRectRgn
                 (0, 0, txtSenha.Width, txtSenha.Height, 10, 10));
+            btnEntrar.Region = Region.FromHrgn(CreateRoundRectRgn
+                (0, 0, btnEntrar.Width, btnEntrar.Height, 10, 10));
+            btnCadastrar.Region = Region.FromHrgn(CreateRoundRectRgn
+                (0, 0, btnCadastrar.Width, btnCadastrar.Height, 10, 10));
+
 
         }
 
@@ -82,7 +87,7 @@ namespace NoteCheck
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void btnEntrar_Click(object sender, EventArgs e)
         {
             string Conexao = "server=127.0.0.1;port=3306;database=notecheck;user=root;";
             using (var connection = new MySqlConnection(Conexao))
@@ -101,7 +106,23 @@ namespace NoteCheck
                     {
                         if (Convert.ToInt32(list.ItemArray[0]) > 0)
                         {
-                            MessageBox.Show("Login realizado com sucesso!");
+                            switch (Action)
+                            {
+                                case "Retirar":
+                                    RetirarNotebooks retirarNotebooks = new RetirarNotebooks();
+                                    this.Hide();
+                                    retirarNotebooks.ShowDialog();
+                                    this.Dispose();
+                                    break;
+                                case "a":
+
+                                    break;
+                                default:
+                                    MessageBox.Show("Login realizado com sucesso, mas infelizmente ocorreu um erro, retorne a página inicial");
+                                    break;
+                            }
+
+
                         }
                         else
                         {
@@ -120,6 +141,14 @@ namespace NoteCheck
             }
         }
 
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            CadastroProfessor cadastroProfessor = new CadastroProfessor();
+            this.Hide();
+            cadastroProfessor.ShowDialog();
+            this.Dispose();
+        }
+
         private void imgLogo_Click(object sender, EventArgs e)
         {
             StartScreen startScreen = new StartScreen();
@@ -127,5 +156,7 @@ namespace NoteCheck
             startScreen.ShowDialog();
             this.Dispose();
         }
+
+
     }
 }

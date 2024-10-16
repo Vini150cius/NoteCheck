@@ -98,6 +98,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastroProfessor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroProfessor.Designer.cs">
+      <DependentUpon>CadastroProfessor.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginProfessor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RetirarNotebooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RetirarNotebooks.Designer.cs">
+      <DependentUpon>RetirarNotebooks.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +128,9 @@
     <None Include="Resources\logoBeta.png" />
     <None Include="Resources\x.png" />
     <None Include="Resources\vivid-blurred-colorful-wallpaper-background.jpg" />
+    <EmbeddedResource Include="CadastroProfessor.resx">
+      <DependentUpon>CadastroProfessor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginProfessor.resx">
       <DependentUpon>LoginProfessor.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +150,9 @@
     <Content Include="Louis-George-Cafe-Bold.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="RetirarNotebooks.resx">
+      <DependentUpon>RetirarNotebooks.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StartScreen.resx">
       <DependentUpon>StartScreen.cs</DependentUpon>
     </EmbeddedResource>
