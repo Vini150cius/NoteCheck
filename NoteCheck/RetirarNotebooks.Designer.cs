@@ -94,13 +94,17 @@
             // btnVoltar
             // 
             this.btnVoltar.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Image = global::NoteCheck.Properties.Resources.seta;
+            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVoltar.Location = new System.Drawing.Point(27, 59);
             this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(87, 27);
             this.btnVoltar.TabIndex = 20;
             this.btnVoltar.Text = "‬Voltar";
+            this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // btnPronto
             // 
@@ -115,6 +119,7 @@
             this.btnPronto.TabIndex = 18;
             this.btnPronto.Text = "Pronto";
             this.btnPronto.UseVisualStyleBackColor = false;
+            this.btnPronto.Click += new System.EventHandler(this.btnPronto_Click);
             // 
             // lblAte
             // 
@@ -233,19 +238,20 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(327, 5);
+            this.label2.Location = new System.Drawing.Point(555, 4);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 32);
             this.label2.TabIndex = 10;
             this.label2.Text = "curso";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(130, 5);
+            this.label1.Location = new System.Drawing.Point(175, 4);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 32);
@@ -266,10 +272,11 @@
             // 
             this.lblLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblLogo.AutoSize = true;
+            this.lblLogo.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
             this.lblLogo.Location = new System.Drawing.Point(53, 4);
             this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(61, 13);
+            this.lblLogo.Size = new System.Drawing.Size(117, 32);
             this.lblLogo.TabIndex = 2;
             this.lblLogo.Text = "NoteCheck";
             // 
@@ -289,6 +296,7 @@
             this.btnMinimizar.Text = "➖";
             this.btnMinimizar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnFechar
             // 
@@ -306,6 +314,7 @@
             this.btnFechar.Text = "❌";
             this.btnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // RetirarNotebooks
             // 
@@ -317,6 +326,7 @@
             this.Name = "RetirarNotebooks";
             this.Text = "RetirarNotebooks";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.RetirarNotebooks_Load);
             this.pnlBack.ResumeLayout(false);
             this.pnlProgram.ResumeLayout(false);
             this.pnlProgram.PerformLayout();

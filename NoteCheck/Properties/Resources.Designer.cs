@@ -73,6 +73,16 @@ namespace NoteCheck.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap seta {
+            get {
+                object obj = ResourceManager.GetObject("seta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap vivid_blurred_colorful_wallpaper_background {
             get {
                 object obj = ResourceManager.GetObject("vivid-blurred-colorful-wallpaper-background", resourceCulture);

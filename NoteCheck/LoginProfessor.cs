@@ -109,7 +109,7 @@ namespace NoteCheck
                             switch (Action)
                             {
                                 case "Retirar":
-                                    RetirarNotebooks retirarNotebooks = new RetirarNotebooks();
+                                    RetirarNotebooks retirarNotebooks = new RetirarNotebooks(Action);
                                     this.Hide();
                                     retirarNotebooks.ShowDialog();
                                     this.Dispose();
@@ -143,7 +143,7 @@ namespace NoteCheck
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            CadastroProfessor cadastroProfessor = new CadastroProfessor();
+            CadastroProfessor cadastroProfessor = new CadastroProfessor(Action);
             this.Hide();
             cadastroProfessor.ShowDialog();
             this.Dispose();

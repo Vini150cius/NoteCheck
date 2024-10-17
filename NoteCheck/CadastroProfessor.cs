@@ -16,6 +16,7 @@ namespace NoteCheck
 {
     public partial class CadastroProfessor : Form
     {
+        public string Action { get; set; }
         private PrivateFontCollection privateFonts = new PrivateFontCollection();
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -52,11 +53,12 @@ namespace NoteCheck
             txtSenhaConfirm.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
             btnCadastrar.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
         }
-        public CadastroProfessor()
+        public CadastroProfessor(string action)
         {
             InitializeComponent();
             LoadFontBebas();
             LoadFontLouis();
+            Action = action;
         }
 
         private void CadastroProfessor_Load(object sender, EventArgs e)
@@ -73,6 +75,10 @@ namespace NoteCheck
                 (0, 0, txtSenhaConfirm.Width, txtSenhaConfirm.Height, 10, 10));
             btnCadastrar.Region = Region.FromHrgn(CreateRoundRectRgn
                 (0, 0, btnCadastrar.Width, btnCadastrar.Height, 10, 10));
+
+            Image img = Properties.Resources.seta;
+            Image resizedImg = new Bitmap(img, new Size(20, 20));
+            btnVoltar.Image = resizedImg;
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -100,6 +106,14 @@ namespace NoteCheck
                 da.Fill(dataTable);
                 connection.Close();
             }
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            LoginProfessor loginProfessor = new LoginProfessor(Action);
+            this.Hide();
+            loginProfessor.ShowDialog();
+            this.Dispose();
         }
     }
 }

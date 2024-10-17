@@ -124,6 +124,7 @@
     <Compile Include="StartScreen.Designer.cs">
       <DependentUpon>StartScreen.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\seta.png" />
     <None Include="packages.config" />
     <None Include="Resources\logoBeta.png" />
     <None Include="Resources\x.png" />
