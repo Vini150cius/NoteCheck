@@ -17,6 +17,10 @@ namespace NoteCheck
     public partial class CadastroProfessor : Form
     {
         public string Action { get; set; }
+
+        public int passwordMaster { get; set; } = 2811;
+
+
         private PrivateFontCollection privateFonts = new PrivateFontCollection();
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -93,18 +97,31 @@ namespace NoteCheck
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            // precisa verificar se a senha mestre ta certa e se a confirmação de senha está certa
-            string Conexao = "server=127.0.0.1;port=3306;database=notecheck;user=root;";
-            using (var connection = new MySqlConnection(Conexao))
+            if(txtSenhaConfirm.Text == txtSenha.Text)
             {
+                if(int.Parse(txtSenhaMestre.Text) == passwordMaster)
+                {
+                    string Conexao = "server=127.0.0.1;port=3306;database=notecheck;user=root;";
+                    using (var connection = new MySqlConnection(Conexao))
+                    {
 
-                MySqlCommand query = new MySqlCommand("INSERT INTO professor (nome, senha) VALUES ('" + txtNome.Text + "','" + txtSenha.Text + "')", connection);
-                connection.Open();
+                        MySqlCommand query = new MySqlCommand("INSERT INTO professor (nome, senha) VALUES ('" + txtNome.Text + "','" + txtSenha.Text + "')", connection);
+                        connection.Open();
 
-                DataTable dataTable = new DataTable();
-                MySqlDataAdapter da = new MySqlDataAdapter(query);
-                da.Fill(dataTable);
-                connection.Close();
+                        DataTable dataTable = new DataTable();
+                        MySqlDataAdapter da = new MySqlDataAdapter(query);
+                        da.Fill(dataTable);
+                        connection.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("A senha mestre está errada, você não tem permissão para criar um novo usuário.", "Sem permissão", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("A senha e a confirmação de senha não coincidem. Por favor, tente novamente.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
