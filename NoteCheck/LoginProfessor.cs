@@ -46,6 +46,8 @@ namespace NoteCheck
             lblCampoSenha.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
             txtNome.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
             txtSenha.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
+            cbxAno.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
+            cbxCurso.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
             btnEntrar.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
             btnCadastrar.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
         }
@@ -56,16 +58,32 @@ namespace NoteCheck
             LoadFontBebas();
             LoadFontLouis();
             Action = action;
+            if (Action == "Retirar")
+            {
+                cbxAno.Visible = true;
+                cbxCurso.Visible = true;
+                lblCampoCurso.Visible = true;
+            }
         }
 
         private void LoginProfessor_Load(object sender, EventArgs e)
         {
             pnlProgram.Region = Region.FromHrgn(CreateRoundRectRgn
                 (0, 0, pnlProgram.Width, pnlProgram.Height, 40, 40));
+            lblCampoCurso.Region = Region.FromHrgn(CreateRoundRectRgn
+                (0, 0, cbxCurso.Width, cbxCurso.Height, 10, 10));
+            lblCampoNome.Region = Region.FromHrgn(CreateRoundRectRgn
+                (0, 0, cbxCurso.Width, cbxCurso.Height, 10, 10));
+            lblCampoSenha.Region = Region.FromHrgn(CreateRoundRectRgn
+                (0, 0, cbxCurso.Width, cbxCurso.Height, 10, 10));
             txtNome.Region = Region.FromHrgn(CreateRoundRectRgn
                 (0, 0, txtNome.Width, txtNome.Height, 10, 10));
             txtSenha.Region = Region.FromHrgn(CreateRoundRectRgn
                 (0, 0, txtSenha.Width, txtSenha.Height, 10, 10));
+            cbxAno.Region = Region.FromHrgn(CreateRoundRectRgn
+                (0, 0, cbxAno.Width, cbxAno.Height, 10, 10));
+            cbxCurso.Region = Region.FromHrgn(CreateRoundRectRgn
+                (0, 0, cbxCurso.Width, cbxCurso.Height, 10, 10));
             btnEntrar.Region = Region.FromHrgn(CreateRoundRectRgn
                 (0, 0, btnEntrar.Width, btnEntrar.Height, 10, 10));
             btnCadastrar.Region = Region.FromHrgn(CreateRoundRectRgn
@@ -94,7 +112,7 @@ namespace NoteCheck
             {
                 try
                 {
-                    MySqlCommand query = new MySqlCommand("select count(*) from professor where nome = '" + txtNome.Text + "' and senha = '" + txtSenha.Text + "'", connection);
+                    MySqlCommand query = new MySqlCommand("select id from professor where nome = '" + txtNome.Text + "' and senha = '" + txtSenha.Text + "'", connection);
 
                     connection.Open();
 
@@ -102,32 +120,29 @@ namespace NoteCheck
                     MySqlDataAdapter da = new MySqlDataAdapter(query);
                     da.Fill(dataTable);
 
-                    foreach (DataRow list in dataTable.Rows)
+                    if (dataTable.Rows.Count > 0)
                     {
-                        if (Convert.ToInt32(list.ItemArray[0]) > 0)
+                        int professorId = Convert.ToInt32(dataTable.Rows[0]["id"]);
+                        MessageBox.Show("Bem vindo professor(a) " + txtNome.Text);
+                        switch (Action)
                         {
-                            switch (Action)
-                            {
-                                case "Retirar":
-                                    RetirarNotebooks retirarNotebooks = new RetirarNotebooks(Action);
-                                    this.Hide();
-                                    retirarNotebooks.ShowDialog();
-                                    this.Dispose();
-                                    break;
-                                case "a":
+                            case "Retirar":
+                                RetirarNotebooks retirarNotebooks = new RetirarNotebooks(Action, professorId);
+                                this.Hide();
+                                retirarNotebooks.ShowDialog();
+                                this.Dispose();
+                                break;
+                            case "a":
 
-                                    break;
-                                default:
-                                    MessageBox.Show("Login realizado com sucesso, mas infelizmente ocorreu um erro, retorne a página inicial");
-                                    break;
-                            }
-
-
+                                break;
+                            default:
+                                MessageBox.Show("Login realizado com sucesso, mas infelizmente ocorreu um erro, retorne a página inicial");
+                                break;
                         }
-                        else
-                        {
-                            MessageBox.Show("Nome ou senha incorretos.");
-                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nome ou senha incorretos.");
                     }
                 }
                 catch (Exception ex)
@@ -157,6 +172,9 @@ namespace NoteCheck
             this.Dispose();
         }
 
+        private void cbxCurso_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

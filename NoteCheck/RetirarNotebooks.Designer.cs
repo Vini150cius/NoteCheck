@@ -42,8 +42,8 @@
             this.txtNomeAluno = new System.Windows.Forms.TextBox();
             this.lblBoasVindas = new System.Windows.Forms.Label();
             this.pnlControles = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCurso = new System.Windows.Forms.Label();
+            this.lblProfessorNome = new System.Windows.Forms.Label();
             this.imgLogo = new System.Windows.Forms.PictureBox();
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -222,8 +222,8 @@
             // pnlControles
             // 
             this.pnlControles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(73)))), ((int)(((byte)(96)))));
-            this.pnlControles.Controls.Add(this.label2);
-            this.pnlControles.Controls.Add(this.label1);
+            this.pnlControles.Controls.Add(this.lblCurso);
+            this.pnlControles.Controls.Add(this.lblProfessorNome);
             this.pnlControles.Controls.Add(this.imgLogo);
             this.pnlControles.Controls.Add(this.lblLogo);
             this.pnlControles.Controls.Add(this.btnMinimizar);
@@ -233,30 +233,30 @@
             this.pnlControles.Size = new System.Drawing.Size(969, 40);
             this.pnlControles.TabIndex = 2;
             // 
-            // label2
+            // lblCurso
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(555, 4);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 32);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "curso";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lblCurso.AutoSize = true;
+            this.lblCurso.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
+            this.lblCurso.Location = new System.Drawing.Point(555, 4);
+            this.lblCurso.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCurso.Name = "lblCurso";
+            this.lblCurso.Size = new System.Drawing.Size(72, 32);
+            this.lblCurso.TabIndex = 10;
+            this.lblCurso.Text = "curso";
+            this.lblCurso.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label1
+            // lblProfessorNome
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(175, 4);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 32);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Nome do prof";
+            this.lblProfessorNome.AutoSize = true;
+            this.lblProfessorNome.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfessorNome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
+            this.lblProfessorNome.Location = new System.Drawing.Point(175, 4);
+            this.lblProfessorNome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblProfessorNome.Name = "lblProfessorNome";
+            this.lblProfessorNome.Size = new System.Drawing.Size(145, 32);
+            this.lblProfessorNome.TabIndex = 9;
+            this.lblProfessorNome.Text = "Nome do prof";
             // 
             // imgLogo
             // 
@@ -347,8 +347,8 @@
         private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnFechar;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblProfessorNome;
+        private System.Windows.Forms.Label lblCurso;
         private System.Windows.Forms.Label lblCampoNomeAluno;
         private System.Windows.Forms.TextBox txtNomeAluno;
         private System.Windows.Forms.Label lblNumeroNote;

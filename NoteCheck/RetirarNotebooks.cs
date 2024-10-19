@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace NoteCheck
     public partial class RetirarNotebooks : Form
     {
         public string Action { get; set; }
+        public int ProfessorId { get; set; }
         private PrivateFontCollection privateFonts = new PrivateFontCollection();
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -50,16 +52,47 @@ namespace NoteCheck
             lblAte.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
         }
 
-        public RetirarNotebooks(string action)
+        public RetirarNotebooks(string action, int professorId)
         {
             InitializeComponent();
             LoadFontBebas();
             LoadFontLouis();
             Action = action;
+            ProfessorId = professorId;
         }
 
         private void RetirarNotebooks_Load(object sender, EventArgs e)
         {
+            string Conexao = "server=127.0.0.1;port=3306;database=notecheck;user=root;";
+            using (var connection = new MySqlConnection(Conexao))
+            {
+                try
+                {
+                    MySqlCommand query = new MySqlCommand("select * from professor where id = '" + ProfessorId + "'", connection);
+
+                    connection.Open();
+
+                    DataTable dataTable = new DataTable();
+                    MySqlDataAdapter da = new MySqlDataAdapter(query);
+                    da.Fill(dataTable);
+
+                    DataRow row = dataTable.Rows[0];
+
+                    string nome = row["nome"].ToString();
+                    lblProfessorNome.Text = "Professor: " + nome;
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            
             pnlProgram.Region = Region.FromHrgn(CreateRoundRectRgn
                 (0, 0, pnlProgram.Width, pnlProgram.Height, 40, 40));
             txtNomeAluno.Region = Region.FromHrgn(CreateRoundRectRgn

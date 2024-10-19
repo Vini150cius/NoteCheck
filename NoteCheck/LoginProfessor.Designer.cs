@@ -43,6 +43,9 @@
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.lblCampoCurso = new System.Windows.Forms.Label();
+            this.cbxCurso = new System.Windows.Forms.ComboBox();
+            this.cbxAno = new System.Windows.Forms.ComboBox();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlControles.SuspendLayout();
@@ -68,6 +71,9 @@
             this.pnlProgram.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlProgram.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
+            this.pnlProgram.Controls.Add(this.cbxAno);
+            this.pnlProgram.Controls.Add(this.cbxCurso);
+            this.pnlProgram.Controls.Add(this.lblCampoCurso);
             this.pnlProgram.Controls.Add(this.btnCadastrar);
             this.pnlProgram.Controls.Add(this.lblBoasVindas);
             this.pnlProgram.Controls.Add(this.lblCampoSenha);
@@ -89,7 +95,7 @@
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(73)))), ((int)(((byte)(96)))));
-            this.btnCadastrar.Location = new System.Drawing.Point(240, 325);
+            this.btnCadastrar.Location = new System.Drawing.Point(242, 354);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(207, 37);
             this.btnCadastrar.TabIndex = 9;
@@ -113,7 +119,7 @@
             // 
             this.lblCampoSenha.AutoSize = true;
             this.lblCampoSenha.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCampoSenha.Location = new System.Drawing.Point(242, 262);
+            this.lblCampoSenha.Location = new System.Drawing.Point(232, 251);
             this.lblCampoSenha.Name = "lblCampoSenha";
             this.lblCampoSenha.Size = new System.Drawing.Size(131, 17);
             this.lblCampoSenha.TabIndex = 7;
@@ -123,7 +129,7 @@
             // 
             this.lblCampoNome.AutoSize = true;
             this.lblCampoNome.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCampoNome.Location = new System.Drawing.Point(242, 193);
+            this.lblCampoNome.Location = new System.Drawing.Point(232, 195);
             this.lblCampoNome.Name = "lblCampoNome";
             this.lblCampoNome.Size = new System.Drawing.Size(127, 17);
             this.lblCampoNome.TabIndex = 6;
@@ -136,7 +142,7 @@
             this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrar.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.btnEntrar.Location = new System.Drawing.Point(521, 325);
+            this.btnEntrar.Location = new System.Drawing.Point(523, 354);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(207, 37);
             this.btnEntrar.TabIndex = 5;
@@ -148,7 +154,7 @@
             // 
             this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.Location = new System.Drawing.Point(391, 262);
+            this.txtSenha.Location = new System.Drawing.Point(397, 249);
             this.txtSenha.Multiline = true;
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
@@ -161,7 +167,7 @@
             this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(391, 193);
+            this.txtNome.Location = new System.Drawing.Point(397, 193);
             this.txtNome.Multiline = true;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(339, 20);
@@ -251,6 +257,47 @@
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
+            // lblCampoCurso
+            // 
+            this.lblCampoCurso.AutoSize = true;
+            this.lblCampoCurso.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCampoCurso.Location = new System.Drawing.Point(232, 307);
+            this.lblCampoCurso.Name = "lblCampoCurso";
+            this.lblCampoCurso.Size = new System.Drawing.Size(155, 17);
+            this.lblCampoCurso.TabIndex = 11;
+            this.lblCampoCurso.Text = "Insira o curso e ano:";
+            this.lblCampoCurso.Visible = false;
+            // 
+            // cbxCurso
+            // 
+            this.cbxCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxCurso.FormattingEnabled = true;
+            this.cbxCurso.Items.AddRange(new object[] {
+            "Transtorno de dupla personalidade",
+            "Taxa minima de atratividade",
+            "Darmstadio"});
+            this.cbxCurso.Location = new System.Drawing.Point(397, 305);
+            this.cbxCurso.Name = "cbxCurso";
+            this.cbxCurso.Size = new System.Drawing.Size(236, 21);
+            this.cbxCurso.TabIndex = 12;
+            this.cbxCurso.Visible = false;
+            this.cbxCurso.SelectedIndexChanged += new System.EventHandler(this.cbxCurso_SelectedIndexChanged);
+            // 
+            // cbxAno
+            // 
+            this.cbxAno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxAno.FormattingEnabled = true;
+            this.cbxAno.Items.AddRange(new object[] {
+            "1º Ano",
+            "2º Ano",
+            "3º Ano",
+            "Curso"});
+            this.cbxAno.Location = new System.Drawing.Point(639, 305);
+            this.cbxAno.Name = "cbxAno";
+            this.cbxAno.Size = new System.Drawing.Size(97, 21);
+            this.cbxAno.TabIndex = 13;
+            this.cbxAno.Visible = false;
+            // 
             // LoginProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,5 +335,8 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblBoasVindas;
         private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Label lblCampoCurso;
+        private System.Windows.Forms.ComboBox cbxAno;
+        private System.Windows.Forms.ComboBox cbxCurso;
     }
 }

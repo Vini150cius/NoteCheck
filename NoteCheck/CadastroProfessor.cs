@@ -112,6 +112,11 @@ namespace NoteCheck
                         MySqlDataAdapter da = new MySqlDataAdapter(query);
                         da.Fill(dataTable);
                         connection.Close();
+                        MessageBox.Show("Usuário criado com sucesso, já pode realizar o login na tela anterior.", "Cadastro bem sucedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoginProfessor loginProfessor = new LoginProfessor(Action);
+                        this.Hide();
+                        loginProfessor.ShowDialog();
+                        this.Dispose();
                     }
                 }
                 else
