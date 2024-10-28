@@ -30,6 +30,9 @@
         {
             this.pnlBack = new System.Windows.Forms.Panel();
             this.pnlProgram = new System.Windows.Forms.Panel();
+            this.cbxAno = new System.Windows.Forms.ComboBox();
+            this.cbxCurso = new System.Windows.Forms.ComboBox();
+            this.lblCampoCurso = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.lblBoasVindas = new System.Windows.Forms.Label();
             this.lblCampoSenha = new System.Windows.Forms.Label();
@@ -43,9 +46,6 @@
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.lblCampoCurso = new System.Windows.Forms.Label();
-            this.cbxCurso = new System.Windows.Forms.ComboBox();
-            this.cbxAno = new System.Windows.Forms.ComboBox();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlControles.SuspendLayout();
@@ -87,6 +87,53 @@
             this.pnlProgram.Name = "pnlProgram";
             this.pnlProgram.Size = new System.Drawing.Size(969, 510);
             this.pnlProgram.TabIndex = 2;
+            // 
+            // cbxAno
+            // 
+            this.cbxAno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxAno.FormattingEnabled = true;
+            this.cbxAno.Items.AddRange(new object[] {
+            "1º Ano",
+            "2º Ano",
+            "3º Ano",
+            "Curso"});
+            this.cbxAno.Location = new System.Drawing.Point(639, 305);
+            this.cbxAno.Name = "cbxAno";
+            this.cbxAno.Size = new System.Drawing.Size(97, 21);
+            this.cbxAno.TabIndex = 13;
+            this.cbxAno.Visible = false;
+            // 
+            // cbxCurso
+            // 
+            this.cbxCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxCurso.FormattingEnabled = true;
+            this.cbxCurso.Items.AddRange(new object[] {
+            "Administração",
+            "Desenvolvimento de Sistemas",
+            "Design de Interiores",
+            "Hospedagem",
+            "Meio Ambiente",
+            "Secretariado",
+            "Informática para Internet",
+            "Paisagismo",
+            "Turismo Receptivo"});
+            this.cbxCurso.Location = new System.Drawing.Point(397, 305);
+            this.cbxCurso.Name = "cbxCurso";
+            this.cbxCurso.Size = new System.Drawing.Size(236, 21);
+            this.cbxCurso.TabIndex = 12;
+            this.cbxCurso.Visible = false;
+            this.cbxCurso.SelectedIndexChanged += new System.EventHandler(this.cbxCurso_SelectedIndexChanged);
+            // 
+            // lblCampoCurso
+            // 
+            this.lblCampoCurso.AutoSize = true;
+            this.lblCampoCurso.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCampoCurso.Location = new System.Drawing.Point(232, 307);
+            this.lblCampoCurso.Name = "lblCampoCurso";
+            this.lblCampoCurso.Size = new System.Drawing.Size(155, 17);
+            this.lblCampoCurso.TabIndex = 11;
+            this.lblCampoCurso.Text = "Insira o curso e ano:";
+            this.lblCampoCurso.Visible = false;
             // 
             // btnCadastrar
             // 
@@ -256,47 +303,6 @@
             this.btnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
-            // lblCampoCurso
-            // 
-            this.lblCampoCurso.AutoSize = true;
-            this.lblCampoCurso.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCampoCurso.Location = new System.Drawing.Point(232, 307);
-            this.lblCampoCurso.Name = "lblCampoCurso";
-            this.lblCampoCurso.Size = new System.Drawing.Size(155, 17);
-            this.lblCampoCurso.TabIndex = 11;
-            this.lblCampoCurso.Text = "Insira o curso e ano:";
-            this.lblCampoCurso.Visible = false;
-            // 
-            // cbxCurso
-            // 
-            this.cbxCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxCurso.FormattingEnabled = true;
-            this.cbxCurso.Items.AddRange(new object[] {
-            "Transtorno de dupla personalidade",
-            "Taxa minima de atratividade",
-            "Darmstadio"});
-            this.cbxCurso.Location = new System.Drawing.Point(397, 305);
-            this.cbxCurso.Name = "cbxCurso";
-            this.cbxCurso.Size = new System.Drawing.Size(236, 21);
-            this.cbxCurso.TabIndex = 12;
-            this.cbxCurso.Visible = false;
-            this.cbxCurso.SelectedIndexChanged += new System.EventHandler(this.cbxCurso_SelectedIndexChanged);
-            // 
-            // cbxAno
-            // 
-            this.cbxAno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxAno.FormattingEnabled = true;
-            this.cbxAno.Items.AddRange(new object[] {
-            "1º Ano",
-            "2º Ano",
-            "3º Ano",
-            "Curso"});
-            this.cbxAno.Location = new System.Drawing.Point(639, 305);
-            this.cbxAno.Name = "cbxAno";
-            this.cbxAno.Size = new System.Drawing.Size(97, 21);
-            this.cbxAno.TabIndex = 13;
-            this.cbxAno.Visible = false;
             // 
             // LoginProfessor
             // 

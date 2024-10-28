@@ -104,6 +104,12 @@
     <Compile Include="CadastroProfessor.Designer.cs">
       <DependentUpon>CadastroProfessor.cs</DependentUpon>
     </Compile>
+    <Compile Include="DevolverNotebook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevolverNotebook.Designer.cs">
+      <DependentUpon>DevolverNotebook.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginProfessor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,15 @@
     <Compile Include="StartScreen.Designer.cs">
       <DependentUpon>StartScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="StatusNotebook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatusNotebook.Designer.cs">
+      <DependentUpon>StatusNotebook.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="StatusNotebook.resx">
+      <DependentUpon>StatusNotebook.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Resources\seta.png" />
     <None Include="packages.config" />
     <None Include="Resources\logoBeta.png" />
@@ -131,6 +146,9 @@
     <None Include="Resources\vivid-blurred-colorful-wallpaper-background.jpg" />
     <EmbeddedResource Include="CadastroProfessor.resx">
       <DependentUpon>CadastroProfessor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevolverNotebook.resx">
+      <DependentUpon>DevolverNotebook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginProfessor.resx">
       <DependentUpon>LoginProfessor.cs</DependentUpon>
