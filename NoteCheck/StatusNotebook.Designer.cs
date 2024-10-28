@@ -37,6 +37,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTimer = new System.Windows.Forms.Label();
             this.tmrTelas = new System.Windows.Forms.Timer(this.components);
+            this.lblBoasVindas = new System.Windows.Forms.Label();
             this.pnlControles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -135,11 +136,24 @@
             this.tmrTelas.Enabled = true;
             this.tmrTelas.Interval = 1;
             // 
+            // lblBoasVindas
+            // 
+            this.lblBoasVindas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblBoasVindas.AutoSize = true;
+            this.lblBoasVindas.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBoasVindas.ForeColor = System.Drawing.Color.Black;
+            this.lblBoasVindas.Location = new System.Drawing.Point(319, 71);
+            this.lblBoasVindas.Name = "lblBoasVindas";
+            this.lblBoasVindas.Size = new System.Drawing.Size(261, 32);
+            this.lblBoasVindas.TabIndex = 24;
+            this.lblBoasVindas.Text = "Cadastro de professores";
+            // 
             // StatusNotebook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 510);
+            this.Controls.Add(this.lblBoasVindas);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlControles);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -151,6 +165,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -164,5 +179,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.Timer tmrTelas;
+        private System.Windows.Forms.Label lblBoasVindas;
     }
 }
