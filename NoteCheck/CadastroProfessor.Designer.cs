@@ -30,6 +30,7 @@
         {
             this.pnlBack = new System.Windows.Forms.Panel();
             this.pnlProgram = new System.Windows.Forms.Panel();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.lblCampoNome = new System.Windows.Forms.Label();
             this.lblCampoSenhaMestre = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -42,11 +43,10 @@
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.lblAcao = new System.Windows.Forms.Label();
             this.pnlControles = new System.Windows.Forms.Panel();
+            this.imgLogo = new System.Windows.Forms.PictureBox();
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.btnVoltar = new System.Windows.Forms.Button();
-            this.imgLogo = new System.Windows.Forms.PictureBox();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlControles.SuspendLayout();
@@ -89,6 +89,22 @@
             this.pnlProgram.Name = "pnlProgram";
             this.pnlProgram.Size = new System.Drawing.Size(969, 510);
             this.pnlProgram.TabIndex = 3;
+            this.pnlProgram.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlProgram_Paint);
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Image = global::NoteCheck.Properties.Resources.seta;
+            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoltar.Location = new System.Drawing.Point(27, 63);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(87, 27);
+            this.btnVoltar.TabIndex = 14;
+            this.btnVoltar.Text = "‬Voltar";
+            this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // lblCampoNome
             // 
@@ -225,6 +241,16 @@
             this.pnlControles.Size = new System.Drawing.Size(969, 40);
             this.pnlControles.TabIndex = 2;
             // 
+            // imgLogo
+            // 
+            this.imgLogo.BackgroundImage = global::NoteCheck.Properties.Resources.logoBeta;
+            this.imgLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgLogo.Location = new System.Drawing.Point(11, 4);
+            this.imgLogo.Name = "imgLogo";
+            this.imgLogo.Size = new System.Drawing.Size(36, 33);
+            this.imgLogo.TabIndex = 3;
+            this.imgLogo.TabStop = false;
+            // 
             // lblLogo
             // 
             this.lblLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -271,31 +297,6 @@
             this.btnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Image = global::NoteCheck.Properties.Resources.seta;
-            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoltar.Location = new System.Drawing.Point(27, 63);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(87, 27);
-            this.btnVoltar.TabIndex = 14;
-            this.btnVoltar.Text = "‬Voltar";
-            this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
-            // 
-            // imgLogo
-            // 
-            this.imgLogo.BackgroundImage = global::NoteCheck.Properties.Resources.logoBeta;
-            this.imgLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgLogo.Location = new System.Drawing.Point(11, 4);
-            this.imgLogo.Name = "imgLogo";
-            this.imgLogo.Size = new System.Drawing.Size(36, 33);
-            this.imgLogo.TabIndex = 3;
-            this.imgLogo.TabStop = false;
             // 
             // CadastroProfessor
             // 

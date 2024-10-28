@@ -17,6 +17,8 @@ namespace NoteCheck
     {
         public string Action { get; set; }
         public int ProfessorId { get; set; }
+        public string Curso { get; set; }
+
         private PrivateFontCollection privateFonts = new PrivateFontCollection();
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -52,13 +54,14 @@ namespace NoteCheck
             lblAte.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
         }
 
-        public RetirarNotebooks(string action, int professorId)
+        public RetirarNotebooks(string action, int professorId, string curso)
         {
             InitializeComponent();
             LoadFontBebas();
             LoadFontLouis();
             Action = action;
             ProfessorId = professorId;
+            Curso = curso;
         }
 
         private void RetirarNotebooks_Load(object sender, EventArgs e)
@@ -80,6 +83,7 @@ namespace NoteCheck
 
                     string nome = row["nome"].ToString();
                     lblProfessorNome.Text = "Professor: " + nome;
+                    lblCurso.Text = Curso;
 
 
                 }
@@ -105,6 +109,11 @@ namespace NoteCheck
                 (0, 0, mtbTempoInicial.Width, mtbTempoInicial.Height, 10, 10));
             btnPronto.Region = Region.FromHrgn(CreateRoundRectRgn
                 (0, 0, btnPronto.Width, btnPronto.Height, 10, 10));
+            pnlRelogioCenter.Region = Region.FromHrgn(CreateRoundRectRgn
+                (0, 0, pnlRelogioCenter.Width, pnlRelogioCenter.Height, 15, 15));
+            panel1.Region = Region.FromHrgn(CreateRoundRectRgn
+                (0, 0, panel1.Width, panel1.Height, 15, 15));
+
 
             Image img = Properties.Resources.seta;
             Image resizedImg = new Bitmap(img, new Size(20, 20));
@@ -118,7 +127,25 @@ namespace NoteCheck
 
         private void btnPronto_Click(object sender, EventArgs e)
         {
+            string Conexao = "server=127.0.0.1;port=3306;database=notecheck;user=root;";
+            using (var connection = new MySqlConnection(Conexao))
+            {
+                try
+                {
+                    MySqlCommand query = new MySqlCommand("INSERT INTO notebooks () VALUES ('" + txtNomeAluno.Text + "','" + txtNumeroNote.Text + "')", connection);
 
+                    connection.Open();
+                    MessageBox.Show("Notebook retirado com sucesso!!", "Retirada bem sucedida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -141,6 +168,12 @@ namespace NoteCheck
 
         private void label2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void tmrRelogio_Tick(object sender, EventArgs e)
+        {
+            lblRelogio.Text = DateTime.Now.ToString("HH:mm:ss");
 
         }
     }

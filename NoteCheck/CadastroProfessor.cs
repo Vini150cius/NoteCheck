@@ -137,5 +137,10 @@ namespace NoteCheck
             loginProfessor.ShowDialog();
             this.Dispose();
         }
+
+        private void pnlProgram_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

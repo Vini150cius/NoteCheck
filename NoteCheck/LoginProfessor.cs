@@ -123,11 +123,12 @@ namespace NoteCheck
                     if (dataTable.Rows.Count > 0)
                     {
                         int professorId = Convert.ToInt32(dataTable.Rows[0]["id"]);
+                        string Curso = $"Curso: {cbxCurso.Text}, Ano: {cbxAno.Text}";
                         MessageBox.Show("Bem vindo professor(a) " + txtNome.Text);
                         switch (Action)
                         {
                             case "Retirar":
-                                RetirarNotebooks retirarNotebooks = new RetirarNotebooks(Action, professorId);
+                                RetirarNotebooks retirarNotebooks = new RetirarNotebooks(Action, professorId, Curso);
                                 this.Hide();
                                 retirarNotebooks.ShowDialog();
                                 this.Dispose();
