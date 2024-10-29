@@ -100,7 +100,7 @@
             this.cbxAno.Location = new System.Drawing.Point(639, 305);
             this.cbxAno.Name = "cbxAno";
             this.cbxAno.Size = new System.Drawing.Size(97, 21);
-            this.cbxAno.TabIndex = 13;
+            this.cbxAno.TabIndex = 4;
             this.cbxAno.Visible = false;
             // 
             // cbxCurso
@@ -120,7 +120,7 @@
             this.cbxCurso.Location = new System.Drawing.Point(397, 305);
             this.cbxCurso.Name = "cbxCurso";
             this.cbxCurso.Size = new System.Drawing.Size(236, 21);
-            this.cbxCurso.TabIndex = 12;
+            this.cbxCurso.TabIndex = 3;
             this.cbxCurso.Visible = false;
             this.cbxCurso.SelectedIndexChanged += new System.EventHandler(this.cbxCurso_SelectedIndexChanged);
             // 
@@ -145,7 +145,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(242, 354);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(207, 37);
-            this.btnCadastrar.TabIndex = 9;
+            this.btnCadastrar.TabIndex = 6;
             this.btnCadastrar.Text = "Novo professor";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -206,7 +206,7 @@
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(339, 20);
-            this.txtSenha.TabIndex = 4;
+            this.txtSenha.TabIndex = 2;
             this.txtSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNome
@@ -218,7 +218,7 @@
             this.txtNome.Multiline = true;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(339, 20);
-            this.txtNome.TabIndex = 3;
+            this.txtNome.TabIndex = 1;
             this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblAcao
@@ -280,7 +280,7 @@
             this.btnMinimizar.Location = new System.Drawing.Point(870, 7);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(45, 27);
-            this.btnMinimizar.TabIndex = 1;
+            this.btnMinimizar.TabIndex = 7;
             this.btnMinimizar.Text = "➖";
             this.btnMinimizar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnMinimizar.UseVisualStyleBackColor = true;
@@ -298,7 +298,7 @@
             this.btnFechar.Location = new System.Drawing.Point(921, 7);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(45, 27);
-            this.btnFechar.TabIndex = 0;
+            this.btnFechar.TabIndex = 8;
             this.btnFechar.Text = "❌";
             this.btnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFechar.UseVisualStyleBackColor = true;

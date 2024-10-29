@@ -107,51 +107,69 @@ namespace NoteCheck
         }
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            string Conexao = "server=127.0.0.1;port=3306;database=notecheck;user=root;";
-            using (var connection = new MySqlConnection(Conexao))
+            if(lblCampoNome.Text.Length < 3)
             {
-                try
+                MessageBox.Show("Nome inválido ou muito pequeno!!", "Campo de nome inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
+            }else if (lblCampoSenha.Text.Length < 3)
+            {
+                MessageBox.Show("Senha inválido ou muito pequena!!", "Campo de senha inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }else if (cbxCurso.Text.Length < 3)
+            {
+                MessageBox.Show("Curso inválido ou muito pequeno!!", "Campo de curso inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }else if (cbxAno.Text.Length < 3)
+            {
+                MessageBox.Show("Ano inválido ou muito pequeno!!", "Campo de ano inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string Conexao = "server=127.0.0.1;port=3306;database=notecheck;user=root;";
+                using (var connection = new MySqlConnection(Conexao))
                 {
-                    MySqlCommand query = new MySqlCommand("select id from professor where nome = '" + txtNome.Text + "' and senha = '" + txtSenha.Text + "'", connection);
-
-                    connection.Open();
-
-                    DataTable dataTable = new DataTable();
-                    MySqlDataAdapter da = new MySqlDataAdapter(query);
-                    da.Fill(dataTable);
-
-                    if (dataTable.Rows.Count > 0)
+                    try
                     {
-                        int professorId = Convert.ToInt32(dataTable.Rows[0]["id"]);
-                        MessageBox.Show("Bem vindo professor(a) " + txtNome.Text);
-                        switch (Action)
-                        {
-                            case "Retirar":
-                                RetirarNotebooks retirarNotebooks = new RetirarNotebooks(Action, professorId);
-                                this.Hide();
-                                retirarNotebooks.ShowDialog();
-                                this.Dispose();
-                                break;
-                            case "a":
+                        MySqlCommand query = new MySqlCommand("select id from professor where nome = '" + txtNome.Text + "' and senha = '" + txtSenha.Text + "'", connection);
 
-                                break;
-                            default:
-                                MessageBox.Show("Login realizado com sucesso, mas infelizmente ocorreu um erro, retorne a página inicial");
-                                break;
+                        connection.Open();
+
+                        DataTable dataTable = new DataTable();
+                        MySqlDataAdapter da = new MySqlDataAdapter(query);
+                        da.Fill(dataTable);
+
+                        if (dataTable.Rows.Count > 0)
+                        {
+                            int professorId = Convert.ToInt32(dataTable.Rows[0]["id"]);
+                            string Curso = $"Curso: {cbxCurso.Text}, Ano: {cbxAno.Text}";
+                            MessageBox.Show("Bem vindo professor(a) " + txtNome.Text);
+                            switch (Action)
+                            {
+                                case "Retirar":
+                                    RetirarNotebooks retirarNotebooks = new RetirarNotebooks(Action, professorId, Curso);
+                                    this.Hide();
+                                    retirarNotebooks.ShowDialog();
+                                    this.Dispose();
+                                    break;
+                                case "a":
+
+                                    break;
+                                default:
+                                    MessageBox.Show("Login realizado com sucesso, mas infelizmente ocorreu um erro, retorne a página inicial");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nome ou senha incorretos.");
                         }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Nome ou senha incorretos.");
+                        MessageBox.Show("Erro ao conectar: " + ex.Message);
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao conectar: " + ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
+                    finally
+                    {
+                        connection.Close();
+                    }
                 }
             }
         }

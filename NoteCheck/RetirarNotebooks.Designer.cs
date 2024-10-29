@@ -31,31 +31,31 @@
             this.components = new System.ComponentModel.Container();
             this.pnlBack = new System.Windows.Forms.Panel();
             this.pnlProgram = new System.Windows.Forms.Panel();
+            this.pnlTimer = new System.Windows.Forms.Panel();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.btnPronto = new System.Windows.Forms.Button();
             this.lblAte = new System.Windows.Forms.Label();
             this.mtbTempoFinal = new System.Windows.Forms.MaskedTextBox();
             this.mtbTempoInicial = new System.Windows.Forms.MaskedTextBox();
             this.lblTempoUso = new System.Windows.Forms.Label();
+            this.lblNumeroNote = new System.Windows.Forms.Label();
+            this.txtNumeroNote = new System.Windows.Forms.TextBox();
             this.lblCampoNomeAluno = new System.Windows.Forms.Label();
             this.txtNomeAluno = new System.Windows.Forms.TextBox();
             this.lblBoasVindas = new System.Windows.Forms.Label();
             this.pnlControles = new System.Windows.Forms.Panel();
             this.lblCurso = new System.Windows.Forms.Label();
             this.lblProfessorNome = new System.Windows.Forms.Label();
+            this.imgLogo = new System.Windows.Forms.PictureBox();
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTimer = new System.Windows.Forms.Label();
             this.tmrTelas = new System.Windows.Forms.Timer(this.components);
-            this.txtNumeroNote = new System.Windows.Forms.TextBox();
-            this.lblNumeroNote = new System.Windows.Forms.Label();
-            this.btnVoltar = new System.Windows.Forms.Button();
-            this.imgLogo = new System.Windows.Forms.PictureBox();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
+            this.pnlTimer.SuspendLayout();
             this.pnlControles.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +78,7 @@
             this.pnlProgram.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlProgram.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.pnlProgram.Controls.Add(this.panel1);
+            this.pnlProgram.Controls.Add(this.pnlTimer);
             this.pnlProgram.Controls.Add(this.btnVoltar);
             this.pnlProgram.Controls.Add(this.btnPronto);
             this.pnlProgram.Controls.Add(this.lblAte);
@@ -96,6 +96,41 @@
             this.pnlProgram.Size = new System.Drawing.Size(969, 510);
             this.pnlProgram.TabIndex = 2;
             this.pnlProgram.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlProgram_Paint);
+            // 
+            // pnlTimer
+            // 
+            this.pnlTimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(73)))), ((int)(((byte)(96)))));
+            this.pnlTimer.Controls.Add(this.lblTimer);
+            this.pnlTimer.Location = new System.Drawing.Point(870, 477);
+            this.pnlTimer.Name = "pnlTimer";
+            this.pnlTimer.Size = new System.Drawing.Size(112, 43);
+            this.pnlTimer.TabIndex = 21;
+            // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblTimer.Location = new System.Drawing.Point(18, 6);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(60, 24);
+            this.lblTimer.TabIndex = 0;
+            this.lblTimer.Text = "00:00";
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Image = global::NoteCheck.Properties.Resources.seta;
+            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoltar.Location = new System.Drawing.Point(27, 59);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(87, 27);
+            this.btnVoltar.TabIndex = 20;
+            this.btnVoltar.Text = "‬Voltar";
+            this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // btnPronto
             // 
@@ -154,6 +189,28 @@
             this.lblTempoUso.TabIndex = 14;
             this.lblTempoUso.Text = "Quanto tempo vai ser usado:";
             // 
+            // lblNumeroNote
+            // 
+            this.lblNumeroNote.AutoSize = true;
+            this.lblNumeroNote.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeroNote.Location = new System.Drawing.Point(203, 244);
+            this.lblNumeroNote.Name = "lblNumeroNote";
+            this.lblNumeroNote.Size = new System.Drawing.Size(167, 17);
+            this.lblNumeroNote.TabIndex = 12;
+            this.lblNumeroNote.Text = "Numero do notebook:";
+            // 
+            // txtNumeroNote
+            // 
+            this.txtNumeroNote.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNumeroNote.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtNumeroNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroNote.Location = new System.Drawing.Point(427, 244);
+            this.txtNumeroNote.Multiline = true;
+            this.txtNumeroNote.Name = "txtNumeroNote";
+            this.txtNumeroNote.Size = new System.Drawing.Size(339, 20);
+            this.txtNumeroNote.TabIndex = 11;
+            this.txtNumeroNote.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // lblCampoNomeAluno
             // 
             this.lblCampoNomeAluno.AutoSize = true;
@@ -182,7 +239,7 @@
             this.lblBoasVindas.AutoSize = true;
             this.lblBoasVindas.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBoasVindas.ForeColor = System.Drawing.Color.Black;
-            this.lblBoasVindas.Location = new System.Drawing.Point(369, 99);
+            this.lblBoasVindas.Location = new System.Drawing.Point(385, 99);
             this.lblBoasVindas.Name = "lblBoasVindas";
             this.lblBoasVindas.Size = new System.Drawing.Size(198, 32);
             this.lblBoasVindas.TabIndex = 8;
@@ -205,27 +262,37 @@
             // lblCurso
             // 
             this.lblCurso.AutoSize = true;
-            this.lblCurso.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurso.Font = new System.Drawing.Font("Bebas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.lblCurso.Location = new System.Drawing.Point(555, 4);
+            this.lblCurso.Location = new System.Drawing.Point(509, 8);
             this.lblCurso.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCurso.Name = "lblCurso";
-            this.lblCurso.Size = new System.Drawing.Size(72, 32);
+            this.lblCurso.Size = new System.Drawing.Size(363, 24);
             this.lblCurso.TabIndex = 10;
-            this.lblCurso.Text = "curso";
+            this.lblCurso.Text = "curso: desenvolvimento de sistemas, ano: curso";
             this.lblCurso.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblProfessorNome
             // 
             this.lblProfessorNome.AutoSize = true;
-            this.lblProfessorNome.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfessorNome.Font = new System.Drawing.Font("Bebas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProfessorNome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.lblProfessorNome.Location = new System.Drawing.Point(175, 4);
+            this.lblProfessorNome.Location = new System.Drawing.Point(175, 8);
             this.lblProfessorNome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProfessorNome.Name = "lblProfessorNome";
-            this.lblProfessorNome.Size = new System.Drawing.Size(145, 32);
+            this.lblProfessorNome.Size = new System.Drawing.Size(108, 24);
             this.lblProfessorNome.TabIndex = 9;
             this.lblProfessorNome.Text = "Nome do prof";
+            // 
+            // imgLogo
+            // 
+            this.imgLogo.BackgroundImage = global::NoteCheck.Properties.Resources.logoBeta;
+            this.imgLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgLogo.Location = new System.Drawing.Point(11, 4);
+            this.imgLogo.Name = "imgLogo";
+            this.imgLogo.Size = new System.Drawing.Size(36, 33);
+            this.imgLogo.TabIndex = 3;
+            this.imgLogo.TabStop = false;
             // 
             // lblLogo
             // 
@@ -275,76 +342,11 @@
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(73)))), ((int)(((byte)(96)))));
-            this.panel1.Controls.Add(this.lblTimer);
-            this.panel1.Location = new System.Drawing.Point(870, 477);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(99, 34);
-            this.panel1.TabIndex = 21;
-            // 
-            // lblTimer
-            // 
-            this.lblTimer.AutoSize = true;
-            this.lblTimer.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblTimer.Location = new System.Drawing.Point(34, 10);
-            this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(33, 13);
-            this.lblTimer.TabIndex = 0;
-            this.lblTimer.Text = "Timer";
-            // 
             // tmrTelas
             // 
             this.tmrTelas.Enabled = true;
             this.tmrTelas.Interval = 1;
-            // 
-            // txtNumeroNote
-            // 
-            this.txtNumeroNote.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNumeroNote.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtNumeroNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroNote.Location = new System.Drawing.Point(427, 244);
-            this.txtNumeroNote.Multiline = true;
-            this.txtNumeroNote.Name = "txtNumeroNote";
-            this.txtNumeroNote.Size = new System.Drawing.Size(339, 20);
-            this.txtNumeroNote.TabIndex = 11;
-            this.txtNumeroNote.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblNumeroNote
-            // 
-            this.lblNumeroNote.AutoSize = true;
-            this.lblNumeroNote.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumeroNote.Location = new System.Drawing.Point(203, 244);
-            this.lblNumeroNote.Name = "lblNumeroNote";
-            this.lblNumeroNote.Size = new System.Drawing.Size(167, 17);
-            this.lblNumeroNote.TabIndex = 12;
-            this.lblNumeroNote.Text = "Numero do notebook:";
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Image = global::NoteCheck.Properties.Resources.seta;
-            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoltar.Location = new System.Drawing.Point(27, 59);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(87, 27);
-            this.btnVoltar.TabIndex = 20;
-            this.btnVoltar.Text = "‬Voltar";
-            this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
-            // 
-            // imgLogo
-            // 
-            this.imgLogo.BackgroundImage = global::NoteCheck.Properties.Resources.logoBeta;
-            this.imgLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgLogo.Location = new System.Drawing.Point(11, 4);
-            this.imgLogo.Name = "imgLogo";
-            this.imgLogo.Size = new System.Drawing.Size(36, 33);
-            this.imgLogo.TabIndex = 3;
-            this.imgLogo.TabStop = false;
+            this.tmrTelas.Tick += new System.EventHandler(this.tmrTelas_Tick);
             // 
             // RetirarNotebooks
             // 
@@ -360,10 +362,10 @@
             this.pnlBack.ResumeLayout(false);
             this.pnlProgram.ResumeLayout(false);
             this.pnlProgram.PerformLayout();
+            this.pnlTimer.ResumeLayout(false);
+            this.pnlTimer.PerformLayout();
             this.pnlControles.ResumeLayout(false);
             this.pnlControles.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -389,7 +391,7 @@
         private System.Windows.Forms.MaskedTextBox mtbTempoInicial;
         private System.Windows.Forms.Button btnPronto;
         private System.Windows.Forms.Button btnVoltar;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlTimer;
         private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.Timer tmrTelas;
         private System.Windows.Forms.Label lblNumeroNote;

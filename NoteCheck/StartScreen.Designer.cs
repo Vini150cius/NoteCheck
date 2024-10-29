@@ -119,10 +119,11 @@ namespace NoteCheck
             // 
             this.lblBoasVindas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBoasVindas.AutoSize = true;
+            this.lblBoasVindas.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBoasVindas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.lblBoasVindas.Location = new System.Drawing.Point(426, 102);
+            this.lblBoasVindas.Location = new System.Drawing.Point(399, 102);
             this.lblBoasVindas.Name = "lblBoasVindas";
-            this.lblBoasVindas.Size = new System.Drawing.Size(86, 13);
+            this.lblBoasVindas.Size = new System.Drawing.Size(170, 32);
             this.lblBoasVindas.TabIndex = 1;
             this.lblBoasVindas.Text = "Seja bem vindo!!";
             // 
