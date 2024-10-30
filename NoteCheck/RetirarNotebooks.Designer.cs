@@ -117,7 +117,7 @@
             this.pnlTimer.Controls.Add(this.lblTimer);
             this.pnlTimer.Location = new System.Drawing.Point(870, 477);
             this.pnlTimer.Name = "pnlTimer";
-            this.pnlTimer.Size = new System.Drawing.Size(99, 35);
+            this.pnlTimer.Size = new System.Drawing.Size(109, 43);
             this.pnlTimer.TabIndex = 21;
             // 
             // lblTimer
@@ -254,7 +254,7 @@
             this.lblRetirar.AutoSize = true;
             this.lblRetirar.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRetirar.ForeColor = System.Drawing.Color.Black;
-            this.lblRetirar.Location = new System.Drawing.Point(385, 99);
+            this.lblRetirar.Location = new System.Drawing.Point(385, 120);
             this.lblRetirar.Name = "lblRetirar";
             this.lblRetirar.Size = new System.Drawing.Size(198, 32);
             this.lblRetirar.TabIndex = 8;

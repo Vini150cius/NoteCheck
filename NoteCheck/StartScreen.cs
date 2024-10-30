@@ -98,5 +98,29 @@ namespace NoteCheck
             this.Dispose();
         }
 
+        private void btnEntregar_Click(object sender, EventArgs e)
+        {
+            DevolverNotebook devolverNotebook = new DevolverNotebook();
+            this.Hide();
+            devolverNotebook.ShowDialog();
+            this.Dispose();
+        }
+
+        private void btnStatus_Click(object sender, EventArgs e)
+        {
+            StatusNotebook statusNotebook = new StatusNotebook();
+            this.Hide();
+            statusNotebook.ShowDialog();
+            this.Dispose();
+        }
+
+        private void btnHistorico_Click(object sender, EventArgs e)
+        {
+            string action = "Historico";
+            LoginProfessor login = new LoginProfessor(action);
+            this.Hide();
+            login.ShowDialog();
+            this.Dispose();
+        }
     }
 }

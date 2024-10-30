@@ -92,6 +92,7 @@ namespace NoteCheck
             this.btnStatus.TabIndex = 7;
             this.btnStatus.Text = "Status dos notebooks";
             this.btnStatus.UseVisualStyleBackColor = false;
+            this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
             // 
             // btnHistorico
             // 
@@ -103,6 +104,7 @@ namespace NoteCheck
             this.btnHistorico.TabIndex = 6;
             this.btnHistorico.Text = "Histórico de retirada";
             this.btnHistorico.UseVisualStyleBackColor = false;
+            this.btnHistorico.Click += new System.EventHandler(this.btnHistorico_Click);
             // 
             // btnEntregar
             // 
@@ -114,6 +116,7 @@ namespace NoteCheck
             this.btnEntregar.TabIndex = 5;
             this.btnEntregar.Text = "Entregar notebooks";
             this.btnEntregar.UseVisualStyleBackColor = false;
+            this.btnEntregar.Click += new System.EventHandler(this.btnEntregar_Click);
             // 
             // lblBoasVindas
             // 

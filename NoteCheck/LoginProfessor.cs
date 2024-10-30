@@ -64,6 +64,11 @@ namespace NoteCheck
                 cbxCurso.Visible = true;
                 lblCampoCurso.Visible = true;
             }
+            else
+            {
+                cbxAno.Text = "historico";
+                cbxCurso.Text = "historico";
+            }
         }
 
         private void LoginProfessor_Load(object sender, EventArgs e)
@@ -89,7 +94,9 @@ namespace NoteCheck
             btnCadastrar.Region = Region.FromHrgn(CreateRoundRectRgn
                 (0, 0, btnCadastrar.Width, btnCadastrar.Height, 10, 10));
 
-
+            Image img = Properties.Resources.seta;
+            Image resizedImg = new Bitmap(img, new Size(20, 20));
+            btnVoltar.Image = resizedImg;
         }
 
         private void lblAcao_Click(object sender, EventArgs e)
@@ -149,8 +156,11 @@ namespace NoteCheck
                                     retirarNotebooks.ShowDialog();
                                     this.Dispose();
                                     break;
-                                case "a":
-
+                                case "Historico":
+                                    HistoricoRetirada historicoRetirada = new HistoricoRetirada();
+                                    this.Hide();
+                                    historicoRetirada.ShowDialog();
+                                    this.Dispose();
                                     break;
                                 default:
                                     MessageBox.Show("Login realizado com sucesso, mas infelizmente ocorreu um erro, retorne a página inicial");
@@ -193,6 +203,14 @@ namespace NoteCheck
         private void cbxCurso_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            StartScreen startScreen = new StartScreen();
+            this.Hide();
+            startScreen.ShowDialog();
+            this.Dispose();
         }
     }
 }

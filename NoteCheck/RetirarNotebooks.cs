@@ -185,7 +185,8 @@ namespace NoteCheck
                         txtNomeAluno.Text = string.Empty;
                         txtNumeroNote.Text = string.Empty;
                         mtbTempoFinal = null;
-                        mtbTempoInicial = null; mtbTempoInicial.Text = DateTime.Now.ToString("HH:mm");
+                        mtbTempoInicial = null;
+                        mtbTempoInicial.Text = DateTime.Now.ToString("HH:mm");
                     }
                 }
             }
