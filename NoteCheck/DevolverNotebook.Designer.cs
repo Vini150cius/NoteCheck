@@ -34,19 +34,19 @@
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTimer = new System.Windows.Forms.Label();
             this.lblCampoNomeAluno = new System.Windows.Forms.Label();
             this.txtNomeAluno = new System.Windows.Forms.TextBox();
-            this.lblBoasVindas = new System.Windows.Forms.Label();
+            this.lblDevolver = new System.Windows.Forms.Label();
             this.lblNumeroNote = new System.Windows.Forms.Label();
             this.txtNumeroNote = new System.Windows.Forms.TextBox();
             this.tmrTelas = new System.Windows.Forms.Timer(this.components);
             this.btnDevolver = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.pnlTimer = new System.Windows.Forms.Panel();
+            this.lblTimer = new System.Windows.Forms.Label();
             this.pnlControles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnlTimer.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlControles
@@ -117,25 +117,6 @@
             this.btnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFechar.UseVisualStyleBackColor = true;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(73)))), ((int)(((byte)(96)))));
-            this.panel1.Controls.Add(this.lblTimer);
-            this.panel1.Location = new System.Drawing.Point(870, 476);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(99, 34);
-            this.panel1.TabIndex = 22;
-            // 
-            // lblTimer
-            // 
-            this.lblTimer.AutoSize = true;
-            this.lblTimer.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblTimer.Location = new System.Drawing.Point(34, 10);
-            this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(33, 13);
-            this.lblTimer.TabIndex = 0;
-            this.lblTimer.Text = "Timer";
-            // 
             // lblCampoNomeAluno
             // 
             this.lblCampoNomeAluno.AutoSize = true;
@@ -158,17 +139,17 @@
             this.txtNomeAluno.TabIndex = 24;
             this.txtNomeAluno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblBoasVindas
+            // lblDevolver
             // 
-            this.lblBoasVindas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblBoasVindas.AutoSize = true;
-            this.lblBoasVindas.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBoasVindas.ForeColor = System.Drawing.Color.Black;
-            this.lblBoasVindas.Location = new System.Drawing.Point(383, 134);
-            this.lblBoasVindas.Name = "lblBoasVindas";
-            this.lblBoasVindas.Size = new System.Drawing.Size(203, 32);
-            this.lblBoasVindas.TabIndex = 23;
-            this.lblBoasVindas.Text = "Devolver Notebook";
+            this.lblDevolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDevolver.AutoSize = true;
+            this.lblDevolver.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDevolver.ForeColor = System.Drawing.Color.Black;
+            this.lblDevolver.Location = new System.Drawing.Point(383, 134);
+            this.lblDevolver.Name = "lblDevolver";
+            this.lblDevolver.Size = new System.Drawing.Size(203, 32);
+            this.lblDevolver.TabIndex = 23;
+            this.lblDevolver.Text = "Devolver Notebook";
             // 
             // lblNumeroNote
             // 
@@ -225,19 +206,39 @@
             this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVoltar.UseVisualStyleBackColor = true;
             // 
+            // pnlTimer
+            // 
+            this.pnlTimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(73)))), ((int)(((byte)(96)))));
+            this.pnlTimer.Controls.Add(this.lblTimer);
+            this.pnlTimer.Location = new System.Drawing.Point(870, 475);
+            this.pnlTimer.Name = "pnlTimer";
+            this.pnlTimer.Size = new System.Drawing.Size(99, 35);
+            this.pnlTimer.TabIndex = 29;
+            // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblTimer.Location = new System.Drawing.Point(19, 5);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(60, 24);
+            this.lblTimer.TabIndex = 0;
+            this.lblTimer.Text = "00:00";
+            // 
             // DevolverNotebook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
             this.ClientSize = new System.Drawing.Size(969, 510);
+            this.Controls.Add(this.pnlTimer);
             this.Controls.Add(this.btnDevolver);
             this.Controls.Add(this.lblNumeroNote);
             this.Controls.Add(this.txtNumeroNote);
             this.Controls.Add(this.lblCampoNomeAluno);
             this.Controls.Add(this.txtNomeAluno);
-            this.Controls.Add(this.lblBoasVindas);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.lblDevolver);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.pnlControles);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -246,8 +247,8 @@
             this.pnlControles.ResumeLayout(false);
             this.pnlControles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlTimer.ResumeLayout(false);
+            this.pnlTimer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,14 +262,14 @@
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Button btnVoltar;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.Label lblCampoNomeAluno;
         private System.Windows.Forms.TextBox txtNomeAluno;
-        private System.Windows.Forms.Label lblBoasVindas;
+        private System.Windows.Forms.Label lblDevolver;
         private System.Windows.Forms.Label lblNumeroNote;
         private System.Windows.Forms.TextBox txtNumeroNote;
         private System.Windows.Forms.Timer tmrTelas;
         private System.Windows.Forms.Button btnDevolver;
+        private System.Windows.Forms.Panel pnlTimer;
+        private System.Windows.Forms.Label lblTimer;
     }
 }

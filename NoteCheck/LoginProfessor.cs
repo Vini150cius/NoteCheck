@@ -34,7 +34,7 @@ namespace NoteCheck
             privateFonts.AddFontFile(fontPath);
 
             lblLogo.Font = new Font(privateFonts.Families[0], 20, FontStyle.Regular);
-            lblBoasVindas.Font = new Font(privateFonts.Families[0], 20, FontStyle.Regular);
+            lblLogin.Font = new Font(privateFonts.Families[0], 20, FontStyle.Regular);
 
         }
         private void LoadFontLouis()

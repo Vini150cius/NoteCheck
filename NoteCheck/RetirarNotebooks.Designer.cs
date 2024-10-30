@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.pnlBack = new System.Windows.Forms.Panel();
             this.pnlProgram = new System.Windows.Forms.Panel();
+            this.txtStatus = new System.Windows.Forms.TextBox();
             this.pnlTimer = new System.Windows.Forms.Panel();
             this.lblTimer = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
@@ -43,7 +44,7 @@
             this.txtNumeroNote = new System.Windows.Forms.TextBox();
             this.lblCampoNomeAluno = new System.Windows.Forms.Label();
             this.txtNomeAluno = new System.Windows.Forms.TextBox();
-            this.lblBoasVindas = new System.Windows.Forms.Label();
+            this.lblRetirar = new System.Windows.Forms.Label();
             this.pnlControles = new System.Windows.Forms.Panel();
             this.lblCurso = new System.Windows.Forms.Label();
             this.lblProfessorNome = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.tmrTelas = new System.Windows.Forms.Timer(this.components);
-            this.txtStatus = new System.Windows.Forms.TextBox();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlTimer.SuspendLayout();
@@ -91,7 +91,7 @@
             this.pnlProgram.Controls.Add(this.txtNumeroNote);
             this.pnlProgram.Controls.Add(this.lblCampoNomeAluno);
             this.pnlProgram.Controls.Add(this.txtNomeAluno);
-            this.pnlProgram.Controls.Add(this.lblBoasVindas);
+            this.pnlProgram.Controls.Add(this.lblRetirar);
             this.pnlProgram.Controls.Add(this.pnlControles);
             this.pnlProgram.Location = new System.Drawing.Point(56, 12);
             this.pnlProgram.Name = "pnlProgram";
@@ -99,13 +99,25 @@
             this.pnlProgram.TabIndex = 2;
             this.pnlProgram.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlProgram_Paint);
             // 
+            // txtStatus
+            // 
+            this.txtStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStatus.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatus.Location = new System.Drawing.Point(746, 245);
+            this.txtStatus.Multiline = true;
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(20, 20);
+            this.txtStatus.TabIndex = 22;
+            this.txtStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // pnlTimer
             // 
             this.pnlTimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(73)))), ((int)(((byte)(96)))));
             this.pnlTimer.Controls.Add(this.lblTimer);
             this.pnlTimer.Location = new System.Drawing.Point(870, 477);
             this.pnlTimer.Name = "pnlTimer";
-            this.pnlTimer.Size = new System.Drawing.Size(112, 43);
+            this.pnlTimer.Size = new System.Drawing.Size(99, 35);
             this.pnlTimer.TabIndex = 21;
             // 
             // lblTimer
@@ -113,7 +125,7 @@
             this.lblTimer.AutoSize = true;
             this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblTimer.Location = new System.Drawing.Point(18, 6);
+            this.lblTimer.Location = new System.Drawing.Point(19, 5);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(60, 24);
             this.lblTimer.TabIndex = 0;
@@ -124,7 +136,7 @@
             this.btnVoltar.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Image = global::NoteCheck.Properties.Resources.seta;
             this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoltar.Location = new System.Drawing.Point(27, 59);
+            this.btnVoltar.Location = new System.Drawing.Point(11, 59);
             this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(87, 27);
@@ -236,17 +248,17 @@
             this.txtNomeAluno.TabIndex = 9;
             this.txtNomeAluno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblBoasVindas
+            // lblRetirar
             // 
-            this.lblBoasVindas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblBoasVindas.AutoSize = true;
-            this.lblBoasVindas.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBoasVindas.ForeColor = System.Drawing.Color.Black;
-            this.lblBoasVindas.Location = new System.Drawing.Point(385, 99);
-            this.lblBoasVindas.Name = "lblBoasVindas";
-            this.lblBoasVindas.Size = new System.Drawing.Size(198, 32);
-            this.lblBoasVindas.TabIndex = 8;
-            this.lblBoasVindas.Text = "Retirar notebooks";
+            this.lblRetirar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRetirar.AutoSize = true;
+            this.lblRetirar.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRetirar.ForeColor = System.Drawing.Color.Black;
+            this.lblRetirar.Location = new System.Drawing.Point(385, 99);
+            this.lblRetirar.Name = "lblRetirar";
+            this.lblRetirar.Size = new System.Drawing.Size(198, 32);
+            this.lblRetirar.TabIndex = 8;
+            this.lblRetirar.Text = "Retirar notebooks";
             // 
             // pnlControles
             // 
@@ -351,18 +363,6 @@
             this.tmrTelas.Interval = 1;
             this.tmrTelas.Tick += new System.EventHandler(this.tmrTelas_Tick);
             // 
-            // txtStatus
-            // 
-            this.txtStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtStatus.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStatus.Location = new System.Drawing.Point(746, 245);
-            this.txtStatus.Multiline = true;
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(20, 20);
-            this.txtStatus.TabIndex = 22;
-            this.txtStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // RetirarNotebooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,7 +390,7 @@
 
         private System.Windows.Forms.Panel pnlBack;
         private System.Windows.Forms.Panel pnlProgram;
-        private System.Windows.Forms.Label lblBoasVindas;
+        private System.Windows.Forms.Label lblRetirar;
         private System.Windows.Forms.Panel pnlControles;
         private System.Windows.Forms.PictureBox imgLogo;
         private System.Windows.Forms.Label lblLogo;

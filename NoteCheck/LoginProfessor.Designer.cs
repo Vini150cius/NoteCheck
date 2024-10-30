@@ -34,7 +34,7 @@
             this.cbxCurso = new System.Windows.Forms.ComboBox();
             this.lblCampoCurso = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.lblBoasVindas = new System.Windows.Forms.Label();
+            this.lblLogin = new System.Windows.Forms.Label();
             this.lblCampoSenha = new System.Windows.Forms.Label();
             this.lblCampoNome = new System.Windows.Forms.Label();
             this.btnEntrar = new System.Windows.Forms.Button();
@@ -75,7 +75,7 @@
             this.pnlProgram.Controls.Add(this.cbxCurso);
             this.pnlProgram.Controls.Add(this.lblCampoCurso);
             this.pnlProgram.Controls.Add(this.btnCadastrar);
-            this.pnlProgram.Controls.Add(this.lblBoasVindas);
+            this.pnlProgram.Controls.Add(this.lblLogin);
             this.pnlProgram.Controls.Add(this.lblCampoSenha);
             this.pnlProgram.Controls.Add(this.lblCampoNome);
             this.pnlProgram.Controls.Add(this.btnEntrar);
@@ -150,17 +150,17 @@
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
-            // lblBoasVindas
+            // lblLogin
             // 
-            this.lblBoasVindas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblBoasVindas.AutoSize = true;
-            this.lblBoasVindas.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBoasVindas.ForeColor = System.Drawing.Color.Black;
-            this.lblBoasVindas.Location = new System.Drawing.Point(372, 117);
-            this.lblBoasVindas.Name = "lblBoasVindas";
-            this.lblBoasVindas.Size = new System.Drawing.Size(246, 32);
-            this.lblBoasVindas.TabIndex = 8;
-            this.lblBoasVindas.Text = "Login para professores";
+            this.lblLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.ForeColor = System.Drawing.Color.Black;
+            this.lblLogin.Location = new System.Drawing.Point(372, 117);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(246, 32);
+            this.lblLogin.TabIndex = 8;
+            this.lblLogin.Text = "Login para professores";
             // 
             // lblCampoSenha
             // 
@@ -339,7 +339,7 @@
         private System.Windows.Forms.Label lblCampoNome;
         private System.Windows.Forms.Label lblCampoSenha;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label lblBoasVindas;
+        private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label lblCampoCurso;
         private System.Windows.Forms.ComboBox cbxAno;

@@ -43,7 +43,7 @@ namespace NoteCheck
             privateFonts.AddFontFile(fontPath);
 
             lblLogo.Font = new Font(privateFonts.Families[0], 20, FontStyle.Regular);
-            lblBoasVindas.Font = new Font(privateFonts.Families[0], 20, FontStyle.Regular);
+            lblRetirar.Font = new Font(privateFonts.Families[0], 20, FontStyle.Regular);
             lblProfessorNome.Font = new Font(privateFonts.Families[0], 15, FontStyle.Regular);
             lblCurso.Font = new Font(privateFonts.Families[0], 15, FontStyle.Regular);
 
