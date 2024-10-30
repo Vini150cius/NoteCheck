@@ -19,6 +19,11 @@ namespace NoteCheck
         public string Action { get; set; }
         public int ProfessorId { get; set; }
         public string Curso { get; set; }
+        internal bool Disponibilidade { get; set; }
+        internal string NomeProfessor { get; set; }
+        internal string DataAtual {  get; set; }
+        internal string HoraEntrega { get; set; }
+
         private PrivateFontCollection privateFonts = new PrivateFontCollection();
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -68,6 +73,7 @@ namespace NoteCheck
 
         private void RetirarNotebooks_Load(object sender, EventArgs e)
         {
+
             string Conexao = "server=127.0.0.1;port=3306;database=notecheck;user=root;";
             using (var connection = new MySqlConnection(Conexao))
             {
@@ -83,8 +89,8 @@ namespace NoteCheck
 
                     DataRow row = dataTable.Rows[0];
 
-                    string nome = row["nome"].ToString();
-                    lblProfessorNome.Text = "Professor: " + nome;
+                    NomeProfessor = row["nome"].ToString();
+                    lblProfessorNome.Text = "Professor: " + NomeProfessor;
                     lblCurso.Text = Curso;
 
                 }
@@ -104,6 +110,8 @@ namespace NoteCheck
                 (0, 0, txtNomeAluno.Width, txtNomeAluno.Height, 10, 10));
             txtNumeroNote.Region = Region.FromHrgn(CreateRoundRectRgn
                 (0, 0, txtNumeroNote.Width, txtNumeroNote.Height, 10, 10));
+            txtStatus.Region = Region.FromHrgn(CreateRoundRectRgn
+                (0, 0, txtStatus.Width, txtStatus.Height, 50, 50));
             mtbTempoFinal.Region = Region.FromHrgn(CreateRoundRectRgn
                 (0, 0, mtbTempoFinal.Width, mtbTempoFinal.Height, 10, 10));
             mtbTempoInicial.Region = Region.FromHrgn(CreateRoundRectRgn
@@ -117,6 +125,7 @@ namespace NoteCheck
             Image resizedImg = new Bitmap(img, new Size(20, 20));
             btnVoltar.Image = resizedImg;
             mtbTempoInicial.Text = DateTime.Now.ToString("HH:mm");
+            DataAtual = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void pnlProgram_Paint(object sender, PaintEventArgs e)
@@ -131,13 +140,17 @@ namespace NoteCheck
                 MessageBox.Show("Nome inválido ou muito pequeno!!", "Campo de nome inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
-            else if (Int32.Parse(txtNumeroNote.Text) < 0 || Int32.Parse(txtNumeroNote.Text) > 100 || txtNumeroNote.Text.Length < 1)
+            else if (Int32.Parse(txtNumeroNote.Text) < 0 || Int32.Parse(txtNumeroNote.Text) > 50 || txtNumeroNote.Text.Length < 1)
             {
                 MessageBox.Show("Número de notebook inválido!!", "Campo de número de notebook inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (mtbTempoInicial.Text.Length < 4)
             {
                 MessageBox.Show("Hora da retirada inválida!!", "Campo de horario de retirada inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (Disponibilidade == false)
+            {
+                MessageBox.Show("Notebook indisponível, em uso ou em manutenção", "Notebook indisponível", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -146,9 +159,20 @@ namespace NoteCheck
                 {
                     try
                     {
-                        MySqlCommand query = new MySqlCommand("INSERT INTO notebooks () VALUES ('" + txtNomeAluno.Text + "','" + txtNumeroNote.Text + "')", connection);
+                        HoraEntrega = mtbTempoFinal.Text.Length < 4 ? "NULL" : "'" + mtbTempoFinal.Text + "'";
+
+                        string query = "INSERT INTO uso_notebook (nome_aluno, turma, professor_responsavel, data_retirada, hora_retirada, hora_entrega, numero_notebook) " +
+                                "VALUES ('" + txtNomeAluno.Text + "', '" + Curso + "', '" + NomeProfessor + "', '" + DataAtual + "', '" + mtbTempoInicial.Text + "', " + HoraEntrega + ", " + txtNumeroNote.Text + ")";
+
+                        MySqlCommand command = new MySqlCommand(query, connection);
 
                         connection.Open();
+                        command.ExecuteNonQuery();
+
+                        string updateStatusQuery = "UPDATE notebook SET status_notebook = 'em uso' WHERE numero_notebook = " + txtNumeroNote.Text;
+                        MySqlCommand updateCommand = new MySqlCommand(updateStatusQuery, connection);
+                        updateCommand.ExecuteNonQuery(); 
+
                         MessageBox.Show("Notebook retirado com sucesso!!", "Retirada bem sucedida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -158,6 +182,10 @@ namespace NoteCheck
                     finally
                     {
                         connection.Close();
+                        txtNomeAluno.Text = string.Empty;
+                        txtNumeroNote.Text = string.Empty;
+                        mtbTempoFinal = null;
+                        mtbTempoInicial = null; mtbTempoInicial.Text = DateTime.Now.ToString("HH:mm");
                     }
                 }
             }
@@ -189,6 +217,56 @@ namespace NoteCheck
         private void tmrTelas_Tick(object sender, EventArgs e)
         {
             lblTimer.Text = DateTime.Now.ToString("HH:mm");
+        }
+
+        private void txtNumeroNote_TextChanged(object sender, EventArgs e)
+        {
+            if (Int32.Parse(txtNumeroNote.Text) > 0 && Int32.Parse(txtNumeroNote.Text) <= 50)
+            {
+                string Conexao = "server=127.0.0.1;port=3306;database=notecheck;user=root;";
+                using (var connection = new MySqlConnection(Conexao))
+                {
+                    try
+                    {
+                        MySqlCommand query = new MySqlCommand("SELECT status_notebook FROM notebook WHERE numero_notebook = '" + txtNumeroNote.Text + "'", connection);
+                        connection.Open();
+
+                        DataTable dataTable = new DataTable();
+                        MySqlDataAdapter da = new MySqlDataAdapter(query);
+                        da.Fill(dataTable);
+
+                        DataRow row = dataTable.Rows[0];
+
+                        string status = row["status_notebook"].ToString();
+                        if (status == "disponível")
+                        {
+                            txtStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(206)))), ((int)(((byte)(164)))));
+                            Disponibilidade = true;
+                        }
+                        else if (status == "em uso")
+                        {
+                            txtStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(21)))), ((int)(((byte)(81)))));
+                            Disponibilidade = false;
+                        }
+                        else if (status == "manutenção")
+                        {
+                            txtStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(193)))), ((int)(((byte)(53)))));
+                            Disponibilidade = false;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao conectar: " + ex.Message);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+            else {
+                txtStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            }
         }
     }
 }

@@ -52,6 +52,7 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.tmrTelas = new System.Windows.Forms.Timer(this.components);
+            this.txtStatus = new System.Windows.Forms.TextBox();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlTimer.SuspendLayout();
@@ -78,6 +79,7 @@
             this.pnlProgram.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlProgram.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
+            this.pnlProgram.Controls.Add(this.txtStatus);
             this.pnlProgram.Controls.Add(this.pnlTimer);
             this.pnlProgram.Controls.Add(this.btnVoltar);
             this.pnlProgram.Controls.Add(this.btnPronto);
@@ -204,12 +206,13 @@
             this.txtNumeroNote.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNumeroNote.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtNumeroNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroNote.Location = new System.Drawing.Point(427, 244);
+            this.txtNumeroNote.Location = new System.Drawing.Point(427, 245);
             this.txtNumeroNote.Multiline = true;
             this.txtNumeroNote.Name = "txtNumeroNote";
-            this.txtNumeroNote.Size = new System.Drawing.Size(339, 20);
+            this.txtNumeroNote.Size = new System.Drawing.Size(313, 20);
             this.txtNumeroNote.TabIndex = 11;
             this.txtNumeroNote.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNumeroNote.TextChanged += new System.EventHandler(this.txtNumeroNote_TextChanged);
             // 
             // lblCampoNomeAluno
             // 
@@ -348,6 +351,18 @@
             this.tmrTelas.Interval = 1;
             this.tmrTelas.Tick += new System.EventHandler(this.tmrTelas_Tick);
             // 
+            // txtStatus
+            // 
+            this.txtStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStatus.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatus.Location = new System.Drawing.Point(746, 245);
+            this.txtStatus.Multiline = true;
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(20, 20);
+            this.txtStatus.TabIndex = 22;
+            this.txtStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // RetirarNotebooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,5 +411,6 @@
         private System.Windows.Forms.Timer tmrTelas;
         private System.Windows.Forms.Label lblNumeroNote;
         private System.Windows.Forms.TextBox txtNumeroNote;
+        private System.Windows.Forms.TextBox txtStatus;
     }
 }
