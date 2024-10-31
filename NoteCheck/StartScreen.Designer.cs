@@ -114,7 +114,7 @@ namespace NoteCheck
             this.btnEntregar.Name = "btnEntregar";
             this.btnEntregar.Size = new System.Drawing.Size(377, 44);
             this.btnEntregar.TabIndex = 5;
-            this.btnEntregar.Text = "Entregar notebooks";
+            this.btnEntregar.Text = "Devolver notebooks";
             this.btnEntregar.UseVisualStyleBackColor = false;
             this.btnEntregar.Click += new System.EventHandler(this.btnEntregar_Click);
             // 
