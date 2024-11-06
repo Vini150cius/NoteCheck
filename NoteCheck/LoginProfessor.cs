@@ -114,71 +114,80 @@ namespace NoteCheck
         }
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            if(lblCampoNome.Text.Length < 3)
+            if (lblCampoNome.Text.Length < 3)
             {
                 MessageBox.Show("Nome inválido ou muito pequeno!!", "Campo de nome inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                
-            }else if (lblCampoSenha.Text.Length < 3)
+            }
+            else if (lblCampoSenha.Text.Length < 3)
             {
                 MessageBox.Show("Senha inválido ou muito pequena!!", "Campo de senha inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }else if (cbxCurso.Text.Length < 3)
+            }
+            else if (cbxCurso.Text.Length < 3)
             {
                 MessageBox.Show("Curso inválido ou muito pequeno!!", "Campo de curso inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }else if (cbxAno.Text.Length < 3)
+            }
+            else if (cbxAno.Text.Length < 3)
             {
                 MessageBox.Show("Ano inválido ou muito pequeno!!", "Campo de ano inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                string Conexao = "server=127.0.0.1;port=3306;database=notecheck;user=root;";
-                using (var connection = new MySqlConnection(Conexao))
+                MySqlConnection Conexao = null;
+                try
                 {
-                    try
+                    string data_source = "datasource=localhost; username=root; database=notecheck";
+                    Conexao = new MySqlConnection(data_source);
+                    string sql = "CALL sp_professor_logar(@nomeProfessor, @senhaProfessor); ";
+
+                    MySqlCommand comando = new MySqlCommand(sql, Conexao);
+                    comando.Parameters.AddWithValue("@nomeProfessor", txtNome.Text);
+                    comando.Parameters.AddWithValue("@senhaProfessor", txtSenha.Text);
+
+                    Conexao.Open();
+
+                    DataTable dataTable = new DataTable();
+                    MySqlDataAdapter da = new MySqlDataAdapter(comando);
+                    da.Fill(dataTable);
+
+                    if (dataTable.Rows.Count > 0)
                     {
-                        MySqlCommand query = new MySqlCommand("select id from professor where nome = '" + txtNome.Text + "' and senha = '" + txtSenha.Text + "'", connection);
+                        int professorId = Convert.ToInt32(dataTable.Rows[0]["id"]);
+                        string Curso = $"Curso: {cbxCurso.Text}, Ano: {cbxAno.Text}";
+                        MessageBox.Show("Bem vindo professor(a) " + txtNome.Text);
 
-                        connection.Open();
-
-                        DataTable dataTable = new DataTable();
-                        MySqlDataAdapter da = new MySqlDataAdapter(query);
-                        da.Fill(dataTable);
-
-                        if (dataTable.Rows.Count > 0)
+                        switch (Action)
                         {
-                            int professorId = Convert.ToInt32(dataTable.Rows[0]["id"]);
-                            string Curso = $"Curso: {cbxCurso.Text}, Ano: {cbxAno.Text}";
-                            MessageBox.Show("Bem vindo professor(a) " + txtNome.Text);
-                            switch (Action)
-                            {
-                                case "Retirar":
-                                    RetirarNotebooks retirarNotebooks = new RetirarNotebooks(Action, professorId, Curso);
-                                    this.Hide();
-                                    retirarNotebooks.ShowDialog();
-                                    this.Dispose();
-                                    break;
-                                case "Historico":
-                                    HistoricoRetirada historicoRetirada = new HistoricoRetirada();
-                                    this.Hide();
-                                    historicoRetirada.ShowDialog();
-                                    this.Dispose();
-                                    break;
-                                default:
-                                    MessageBox.Show("Login realizado com sucesso, mas infelizmente ocorreu um erro, retorne a página inicial");
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Nome ou senha incorretos.");
+                            case "Retirar":
+                                RetirarNotebooks retirarNotebooks = new RetirarNotebooks(Action, professorId, Curso);
+                                this.Hide();
+                                retirarNotebooks.ShowDialog();
+                                this.Dispose();
+                                break;
+                            case "Historico":
+                                HistoricoRetirada historicoRetirada = new HistoricoRetirada();
+                                this.Hide();
+                                historicoRetirada.ShowDialog();
+                                this.Dispose();
+                                break;
+                            default:
+                                MessageBox.Show("Login realizado com sucesso, mas infelizmente ocorreu um erro, retorne a página inicial");
+                                break;
                         }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show("Erro ao conectar: " + ex.Message);
+                        MessageBox.Show("Nome ou senha incorretos.");
                     }
-                    finally
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar: " + ex.Message);
+                }
+                finally
+                {
+                    if (Conexao.State == ConnectionState.Open)
                     {
-                        connection.Close();
+                        Conexao.Close();
                     }
                 }
             }
