@@ -112,71 +112,83 @@ namespace NoteCheck
             {
                 if (Int32.Parse(txtNumeroNote.Text) > 0 && Int32.Parse(txtNumeroNote.Text) <= 50)
                 {
-                    string Conexao = "server=127.0.0.1;port=3306;database=notecheck;user=root;";
-                    using (var connection = new MySqlConnection(Conexao))
+                    MySqlConnection Conexao = null;
+                    try
                     {
-                        try
+                        string data_source = "datasource=localhost; username=root; database=notecheck";
+                        Conexao = new MySqlConnection(data_source);
+                        string sqlVerificar = "CALL sp_notebook_verificar(@numeroNotebook);";
+
+                        MySqlCommand comandoVerificar = new MySqlCommand(sqlVerificar, Conexao);
+                        comandoVerificar.Parameters.AddWithValue("@numeroNotebook", txtNumeroNote.Text);
+
+                        Conexao.Open();
+
+                        DataTable dataTable = new DataTable();
+                        MySqlDataAdapter da = new MySqlDataAdapter(comandoVerificar);
+                        da.Fill(dataTable);
+
+                        DataRow row = dataTable.Rows[0];
+                        string status = row["status_notebook"].ToString();
+
+                        if (status == "em uso" || status == "manutenção")
                         {
-                            MySqlCommand query = new MySqlCommand("SELECT status_notebook FROM notebook WHERE numero_notebook = '" + txtNumeroNote.Text + "'", connection);
-                            connection.Open();
+                            // Consulta para selecionar o id_uso do notebook em uso
+                            string sqlSelectId = "CALL sp_notebook_selecionar_id(@nomeAluno, @numeroNotebook)";
 
-                            DataTable dataTable = new DataTable();
-                            MySqlDataAdapter da = new MySqlDataAdapter(query);
-                            da.Fill(dataTable);
+                            MySqlCommand comandoSelect = new MySqlCommand(sqlSelectId, Conexao);
+                            comandoSelect.Parameters.AddWithValue("@nomeAluno", txtNomeAluno.Text);
+                            comandoSelect.Parameters.AddWithValue("@numeroNotebook", txtNumeroNote.Text);
 
-                            DataRow row = dataTable.Rows[0];
-                            string status = row["status_notebook"].ToString();
+                            DataTable dataTableId = new DataTable();
+                            MySqlDataAdapter daId = new MySqlDataAdapter(comandoSelect);
+                            daId.Fill(dataTableId);
 
-                            if (status == "em uso" || status == "manutenção")
+                            if (dataTableId.Rows.Count > 0)
                             {
-                                // Consulta para selecionar o id_uso do notebook em uso
-                                string selectIdQuery = "SELECT u.id_uso FROM uso_notebook u JOIN notebook n ON u.numero_notebook = n.numero_notebook WHERE u.nome_aluno = '" + txtNomeAluno.Text + "' AND n.numero_notebook = " + txtNumeroNote.Text + " AND n.status_notebook = 'em uso'";
-                                MySqlCommand selectIdCommand = new MySqlCommand(selectIdQuery, connection);
+                                DataRow rowId = dataTableId.Rows[0];
+                                string idUso = rowId["id_uso"].ToString();
 
-                                DataTable dataTableId = new DataTable();
-                                MySqlDataAdapter daId = new MySqlDataAdapter(selectIdCommand);
-                                daId.Fill(dataTableId);
+                                string sqlDevolver = "CALL sp_notebook_devolver(@nomeAluno, @numeroNotebook, @horaEntrega, @idUso)";
 
-                                if (dataTableId.Rows.Count > 0)
-                                {
-                                    DataRow rowId = dataTableId.Rows[0];
-                                    string idUso = rowId["id_uso"].ToString();
+                                MySqlCommand comandoDevolver = new MySqlCommand(sqlDevolver, Conexao);
+                                comandoDevolver.Parameters.AddWithValue("@nomeAluno", txtNomeAluno.Text);
+                                comandoDevolver.Parameters.AddWithValue("@numeroNotebook", txtNumeroNote.Text);
+                                comandoDevolver.Parameters.AddWithValue("@horaEntrega", HoraEntrega);
+                                comandoDevolver.Parameters.AddWithValue("@idUso", idUso);
 
-                                    string updateStatusQuery = "UPDATE notebook SET status_notebook = 'disponível' WHERE numero_notebook = " + txtNumeroNote.Text;
-                                    MySqlCommand updateCommand = new MySqlCommand(updateStatusQuery, connection);
-                                    updateCommand.ExecuteNonQuery();
+                                comandoDevolver.ExecuteNonQuery();
 
-                                    string updateUsoQuery = "UPDATE uso_notebook SET hora_entrega = '" + HoraEntrega + "' WHERE id_uso = " + idUso;
-                                    MySqlCommand updateUsoCommand = new MySqlCommand(updateUsoQuery, connection);
-                                    updateUsoCommand.ExecuteNonQuery();
-
-                                    MessageBox.Show("Notebook devolvido com sucesso!!", "Devolução bem sucedida", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Erro na devolução!! Não foi possível localizar o uso desse notebook em seu nome", "Devolução falha", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                            else if (status == "disponível")
-                            {
-                                MessageBox.Show("Esse notebook já foi devolvido!!", "Devolução falha", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Notebook devolvido com sucesso!!", "Devolução bem sucedida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
-                                MessageBox.Show("Erro na devolução!!", "Devolução falha", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Erro na devolução!! Não foi possível localizar o uso desse notebook em seu nome", "Devolução falha", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
-                        catch (Exception ex)
+                        else if (status == "disponível")
                         {
-                            MessageBox.Show("Erro ao conectar: " + ex.Message);
+                            MessageBox.Show("Esse notebook já foi devolvido!!", "Devolução falha", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-                        finally
+                        else
                         {
-                            connection.Close();
+                            MessageBox.Show("Erro na devolução!!", "Devolução falha", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao conectar: " + ex.Message);
+                    }
+                    finally
+                    {
+                        if (Conexao.State == ConnectionState.Open)
+                        {
+                            Conexao.Close();
                         }
                     }
                 }
             }
         }
+        
     }
 }
