@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -97,26 +98,39 @@ namespace NoteCheck
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            if(txtSenhaConfirm.Text == txtSenha.Text)
+            if (txtSenhaConfirm.Text == txtSenha.Text)
             {
-                if(int.Parse(txtSenhaMestre.Text) == passwordMaster)
+                if (int.Parse(txtSenhaMestre.Text) == passwordMaster)
                 {
-                    string Conexao = "server=127.0.0.1;port=3306;database=notecheck;user=root;";
-                    using (var connection = new MySqlConnection(Conexao))
+                    MySqlConnection Conexao = null;
+                    try
                     {
+                        string data_source = "datasource=localhost; username=root; database=notecheck";
+                        Conexao = new MySqlConnection(data_source);
+                        string sql = "CALL sp_professor_cadastrar(@nomeProfessor, @senhaProfessor); ";
 
-                        MySqlCommand query = new MySqlCommand("INSERT INTO professor (nome, senha) VALUES ('" + txtNome.Text + "','" + txtSenha.Text + "')", connection);
-                        connection.Open();
+                        MySqlCommand comando = new MySqlCommand(sql, Conexao);
+                        comando.Parameters.AddWithValue("@nomeProfessor", txtNome.Text);
+                        comando.Parameters.AddWithValue("@senhaProfessor", txtSenha.Text);
 
-                        DataTable dataTable = new DataTable();
-                        MySqlDataAdapter da = new MySqlDataAdapter(query);
-                        da.Fill(dataTable);
-                        connection.Close();
-                        MessageBox.Show("Usuário criado com sucesso, já pode realizar o login na tela anterior.", "Cadastro bem sucedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoginProfessor loginProfessor = new LoginProfessor(Action);
-                        this.Hide();
-                        loginProfessor.ShowDialog();
-                        this.Dispose();
+                        Conexao.Open();
+                        comando.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao conectar: " + ex.Message);
+                    }
+                    finally
+                    {
+                        if (Conexao.State == ConnectionState.Open)
+                        {
+                            Conexao.Close();
+                            MessageBox.Show("Usuário criado com sucesso, já pode realizar o login na tela anterior.", "Cadastro bem sucedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoginProfessor loginProfessor = new LoginProfessor(Action);
+                            this.Hide();
+                            loginProfessor.ShowDialog();
+                            this.Dispose();
+                        }
                     }
                 }
                 else
@@ -129,6 +143,7 @@ namespace NoteCheck
                 MessageBox.Show("A senha e a confirmação de senha não coincidem. Por favor, tente novamente.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
