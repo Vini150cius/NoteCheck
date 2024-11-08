@@ -22,7 +22,6 @@ namespace NoteCheck
         internal bool Disponibilidade { get; set; }
         internal string NomeProfessor { get; set; }
         internal string DataAtual {  get; set; }
-        internal string HoraEntrega { get; set; }
 
         private PrivateFontCollection privateFonts = new PrivateFontCollection();
 
@@ -154,34 +153,36 @@ namespace NoteCheck
             }
             else
             {
-                string Conexao = "server=127.0.0.1;port=3306;database=notecheck;user=root;";
-                using (var connection = new MySqlConnection(Conexao))
+                MySqlConnection Conexao = null;
+                try
                 {
-                    try
+                    string data_source = "datasource=localhost; username=root; database=notecheck";
+                    Conexao = new MySqlConnection(data_source);
+
+                    string sql = "CALL sp_notebook_retirar(@nomeAluno, @curso, @nomeProfessor, @dataRetirada, @horaRetirada, @horaEntrega, @numeroNotebook);";
+
+                    MySqlCommand comando = new MySqlCommand(sql, Conexao);
+                    comando.Parameters.AddWithValue("@nomeAluno", txtNomeAluno.Text);
+                    comando.Parameters.AddWithValue("@curso", Curso);
+                    comando.Parameters.AddWithValue("@nomeProfessor", NomeProfessor);
+                    comando.Parameters.AddWithValue("@dataRetirada", DataAtual);
+                    comando.Parameters.AddWithValue("@horaRetirada", mtbTempoInicial.Text);
+                    comando.Parameters.AddWithValue("@horaEntrega", mtbTempoFinal.Text);
+                    comando.Parameters.AddWithValue("@numeroNotebook", txtNumeroNote.Text);
+
+                    Conexao.Open();
+                    comando.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar: " + ex.Message);
+                }
+                finally
+                {
+                    if (Conexao.State == ConnectionState.Open)
                     {
-                        HoraEntrega = mtbTempoFinal.Text.Length < 4 ? "NULL" : "'" + mtbTempoFinal.Text + "'";
-
-                        string query = "INSERT INTO uso_notebook (nome_aluno, turma, professor_responsavel, data_retirada, hora_retirada, hora_entrega, numero_notebook) " +
-                                "VALUES ('" + txtNomeAluno.Text + "', '" + Curso + "', '" + NomeProfessor + "', '" + DataAtual + "', '" + mtbTempoInicial.Text + "', " + HoraEntrega + ", " + txtNumeroNote.Text + ")";
-
-                        MySqlCommand command = new MySqlCommand(query, connection);
-
-                        connection.Open();
-                        command.ExecuteNonQuery();
-
-                        string updateStatusQuery = "UPDATE notebook SET status_notebook = 'em uso' WHERE numero_notebook = " + txtNumeroNote.Text;
-                        MySqlCommand updateCommand = new MySqlCommand(updateStatusQuery, connection);
-                        updateCommand.ExecuteNonQuery(); 
-
                         MessageBox.Show("Notebook retirado com sucesso!!", "Retirada bem sucedida", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Erro ao conectar: " + ex.Message);
-                    }
-                    finally
-                    {
-                        connection.Close();
+                        Conexao.Close();
                         txtNomeAluno.Text = string.Empty;
                         txtNumeroNote.Text = string.Empty;
                         mtbTempoFinal = null;

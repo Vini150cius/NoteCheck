@@ -184,6 +184,8 @@ namespace NoteCheck
                         if (Conexao.State == ConnectionState.Open)
                         {
                             Conexao.Close();
+                            txtNomeAluno.Text = null;
+                            txtNumeroNote.Text = null;
                         }
                     }
                 }
