@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatusNotebook));
             this.tmrTelas = new System.Windows.Forms.Timer(this.components);
             this.pnlBack = new System.Windows.Forms.Panel();
             this.pnlProgram = new System.Windows.Forms.Panel();
+            this.pnlTimer = new System.Windows.Forms.Panel();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.dgDados = new System.Windows.Forms.DataGridView();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.lblBoasVindas = new System.Windows.Forms.Label();
             this.lblAcao = new System.Windows.Forms.Label();
@@ -40,15 +44,12 @@
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pnlTimer = new System.Windows.Forms.Panel();
-            this.lblTimer = new System.Windows.Forms.Label();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
+            this.pnlTimer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDados)).BeginInit();
             this.pnlControles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.pnlTimer.SuspendLayout();
             this.SuspendLayout();
             // 
             // tmrTelas
@@ -77,7 +78,7 @@
             this.pnlProgram.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
             this.pnlProgram.Controls.Add(this.pnlTimer);
-            this.pnlProgram.Controls.Add(this.dataGridView1);
+            this.pnlProgram.Controls.Add(this.dgDados);
             this.pnlProgram.Controls.Add(this.btnVoltar);
             this.pnlProgram.Controls.Add(this.lblBoasVindas);
             this.pnlProgram.Controls.Add(this.lblAcao);
@@ -86,6 +87,45 @@
             this.pnlProgram.Name = "pnlProgram";
             this.pnlProgram.Size = new System.Drawing.Size(969, 510);
             this.pnlProgram.TabIndex = 2;
+            // 
+            // pnlTimer
+            // 
+            this.pnlTimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(73)))), ((int)(((byte)(96)))));
+            this.pnlTimer.Controls.Add(this.lblTimer);
+            this.pnlTimer.Location = new System.Drawing.Point(870, 477);
+            this.pnlTimer.Name = "pnlTimer";
+            this.pnlTimer.Size = new System.Drawing.Size(110, 43);
+            this.pnlTimer.TabIndex = 28;
+            // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblTimer.Location = new System.Drawing.Point(19, 5);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(60, 24);
+            this.lblTimer.TabIndex = 0;
+            this.lblTimer.Text = "00:00";
+            this.lblTimer.Click += new System.EventHandler(this.lblTimer_Click);
+            // 
+            // dgDados
+            // 
+            this.dgDados.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDados.Location = new System.Drawing.Point(13, 108);
+            this.dgDados.Name = "dgDados";
+            this.dgDados.ReadOnly = true;
+            this.dgDados.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dgDados.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dgDados.RowHeadersWidth = 20;
+            this.dgDados.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgDados.RowTemplate.Height = 30;
+            this.dgDados.RowTemplate.ReadOnly = true;
+            this.dgDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgDados.Size = new System.Drawing.Size(942, 345);
+            this.dgDados.TabIndex = 27;
+            this.dgDados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDados_CellContentClick);
             // 
             // btnVoltar
             // 
@@ -196,35 +236,6 @@
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 108);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(942, 345);
-            this.dataGridView1.TabIndex = 27;
-            // 
-            // pnlTimer
-            // 
-            this.pnlTimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(73)))), ((int)(((byte)(96)))));
-            this.pnlTimer.Controls.Add(this.lblTimer);
-            this.pnlTimer.Location = new System.Drawing.Point(870, 477);
-            this.pnlTimer.Name = "pnlTimer";
-            this.pnlTimer.Size = new System.Drawing.Size(110, 43);
-            this.pnlTimer.TabIndex = 28;
-            // 
-            // lblTimer
-            // 
-            this.lblTimer.AutoSize = true;
-            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblTimer.Location = new System.Drawing.Point(19, 5);
-            this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(60, 24);
-            this.lblTimer.TabIndex = 0;
-            this.lblTimer.Text = "00:00";
-            this.lblTimer.Click += new System.EventHandler(this.lblTimer_Click);
-            // 
             // StatusNotebook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +243,7 @@
             this.ClientSize = new System.Drawing.Size(1080, 535);
             this.Controls.Add(this.pnlBack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StatusNotebook";
             this.Text = "StatusNotebook";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -239,12 +251,12 @@
             this.pnlBack.ResumeLayout(false);
             this.pnlProgram.ResumeLayout(false);
             this.pnlProgram.PerformLayout();
+            this.pnlTimer.ResumeLayout(false);
+            this.pnlTimer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDados)).EndInit();
             this.pnlControles.ResumeLayout(false);
             this.pnlControles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.pnlTimer.ResumeLayout(false);
-            this.pnlTimer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -261,7 +273,7 @@
         private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnFechar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgDados;
         private System.Windows.Forms.Panel pnlTimer;
         private System.Windows.Forms.Label lblTimer;
     }

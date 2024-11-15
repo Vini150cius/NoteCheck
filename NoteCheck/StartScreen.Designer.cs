@@ -32,6 +32,7 @@ namespace NoteCheck
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartScreen));
             this.pnlBack = new System.Windows.Forms.Panel();
             this.pnlProgram = new System.Windows.Forms.Panel();
             this.btnStatus = new System.Windows.Forms.Button();
@@ -218,6 +219,7 @@ namespace NoteCheck
             this.ClientSize = new System.Drawing.Size(1080, 535);
             this.Controls.Add(this.pnlBack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StartScreen";
             this.Text = "StartScreen";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevolverNotebook));
             this.tmrTelas = new System.Windows.Forms.Timer(this.components);
             this.pnlBack = new System.Windows.Forms.Panel();
             this.pnlProgram = new System.Windows.Forms.Panel();
@@ -276,6 +277,7 @@
             this.ClientSize = new System.Drawing.Size(1080, 535);
             this.Controls.Add(this.pnlBack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DevolverNotebook";
             this.Text = "DevolverNotebook";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

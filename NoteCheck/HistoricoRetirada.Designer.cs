@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoricoRetirada));
             this.pnlBack = new System.Windows.Forms.Panel();
             this.pnlProgram = new System.Windows.Forms.Panel();
+            this.dtpDataDesejada = new System.Windows.Forms.DateTimePicker();
             this.pnlTimer = new System.Windows.Forms.Panel();
             this.lblTimer = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgDados = new System.Windows.Forms.DataGridView();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.lblBoasVindas = new System.Windows.Forms.Label();
             this.lblAcao = new System.Windows.Forms.Label();
@@ -42,12 +44,11 @@
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.dtpDataDesejada = new System.Windows.Forms.DateTimePicker();
             this.tmrTelas = new System.Windows.Forms.Timer(this.components);
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlTimer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDados)).BeginInit();
             this.pnlControles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.SuspendLayout();
@@ -73,7 +74,7 @@
             this.pnlProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
             this.pnlProgram.Controls.Add(this.dtpDataDesejada);
             this.pnlProgram.Controls.Add(this.pnlTimer);
-            this.pnlProgram.Controls.Add(this.dataGridView1);
+            this.pnlProgram.Controls.Add(this.dgDados);
             this.pnlProgram.Controls.Add(this.btnVoltar);
             this.pnlProgram.Controls.Add(this.lblBoasVindas);
             this.pnlProgram.Controls.Add(this.lblAcao);
@@ -82,6 +83,14 @@
             this.pnlProgram.Name = "pnlProgram";
             this.pnlProgram.Size = new System.Drawing.Size(969, 510);
             this.pnlProgram.TabIndex = 2;
+            // 
+            // dtpDataDesejada
+            // 
+            this.dtpDataDesejada.Font = new System.Drawing.Font("Louis George Cafe", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataDesejada.Location = new System.Drawing.Point(13, 98);
+            this.dtpDataDesejada.Name = "dtpDataDesejada";
+            this.dtpDataDesejada.Size = new System.Drawing.Size(276, 22);
+            this.dtpDataDesejada.TabIndex = 29;
             // 
             // pnlTimer
             // 
@@ -103,13 +112,17 @@
             this.lblTimer.TabIndex = 0;
             this.lblTimer.Text = "00:00";
             // 
-            // dataGridView1
+            // dgDados
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 126);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(942, 327);
-            this.dataGridView1.TabIndex = 27;
+            this.dgDados.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDados.Location = new System.Drawing.Point(13, 126);
+            this.dgDados.Name = "dgDados";
+            this.dgDados.ReadOnly = true;
+            this.dgDados.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dgDados.Size = new System.Drawing.Size(942, 327);
+            this.dgDados.TabIndex = 27;
+            this.dgDados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnVoltar
             // 
@@ -220,14 +233,6 @@
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
-            // dtpDataDesejada
-            // 
-            this.dtpDataDesejada.Font = new System.Drawing.Font("Louis George Cafe", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDataDesejada.Location = new System.Drawing.Point(13, 98);
-            this.dtpDataDesejada.Name = "dtpDataDesejada";
-            this.dtpDataDesejada.Size = new System.Drawing.Size(276, 22);
-            this.dtpDataDesejada.TabIndex = 29;
-            // 
             // tmrTelas
             // 
             this.tmrTelas.Enabled = true;
@@ -240,6 +245,7 @@
             this.ClientSize = new System.Drawing.Size(1080, 535);
             this.Controls.Add(this.pnlBack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HistoricoRetirada";
             this.Text = "HistoricoRetirada";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -249,7 +255,7 @@
             this.pnlProgram.PerformLayout();
             this.pnlTimer.ResumeLayout(false);
             this.pnlTimer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDados)).EndInit();
             this.pnlControles.ResumeLayout(false);
             this.pnlControles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
@@ -263,7 +269,7 @@
         private System.Windows.Forms.Panel pnlProgram;
         private System.Windows.Forms.Panel pnlTimer;
         private System.Windows.Forms.Label lblTimer;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgDados;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Label lblBoasVindas;
         private System.Windows.Forms.Label lblAcao;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,33 @@ namespace NoteCheck
 {
     public partial class HistoricoRetirada : Form
     {
+
+        MySqlConnection Conexao = null;
+        public void listaGrid()
+        {
+            string data_source = "datasource=localhost; username=root; database=notecheck";
+            Conexao = new MySqlConnection(data_source);
+            string strSQL = "SELECT * FROM uso_notebook;";
+
+            MySqlCommand comando = new MySqlCommand(strSQL, Conexao);
+
+            Conexao.Open();
+
+            try
+            {
+                DataTable dtLista = new DataTable();
+                MySqlDataAdapter objAdp = new MySqlDataAdapter(comando);
+                objAdp.Fill(dtLista);
+
+                dgDados.DataSource = dtLista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+            }
+
+        }
+
         private PrivateFontCollection privateFonts = new PrivateFontCollection();
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -60,6 +88,7 @@ namespace NoteCheck
             Image img = Properties.Resources.seta;
             Image resizedImg = new Bitmap(img, new Size(20, 20));
             btnVoltar.Image = resizedImg;
+            listaGrid();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -91,6 +120,11 @@ namespace NoteCheck
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimer.Text = DateTime.Now.ToString("HH:mm");
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

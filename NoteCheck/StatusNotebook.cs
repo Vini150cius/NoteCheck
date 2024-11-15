@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
@@ -14,6 +16,33 @@ namespace NoteCheck
 {
     public partial class StatusNotebook : Form
     {
+                
+        MySqlConnection Conexao = null;
+        public void listaGrid()
+        {
+            string data_source = "datasource=localhost; username=root; database=notecheck";
+            Conexao = new MySqlConnection(data_source);
+            string strSQL = "SELECT * FROM notebook;";
+
+            MySqlCommand comando = new MySqlCommand(strSQL, Conexao);
+
+            Conexao.Open();
+
+            try
+            {
+                DataTable dtLista = new DataTable();
+                MySqlDataAdapter objAdp = new MySqlDataAdapter(comando);
+                objAdp.Fill(dtLista);
+
+                dgDados.DataSource = dtLista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+            }
+
+        }
+
         private PrivateFontCollection privateFonts = new PrivateFontCollection();
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -66,6 +95,7 @@ namespace NoteCheck
             Image img = Properties.Resources.seta;
             Image resizedImg = new Bitmap(img, new Size(20, 20));
             btnVoltar.Image = resizedImg;
+            listaGrid();
         }
         private void btnFechar_Click(object sender, EventArgs e)
         {
@@ -103,5 +133,9 @@ namespace NoteCheck
             this.Dispose();
         }
 
+        private void dgDados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
