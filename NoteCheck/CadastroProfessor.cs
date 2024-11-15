@@ -39,7 +39,6 @@ namespace NoteCheck
             string fontPath = @"./Bebas-Regular.ttf";
             privateFonts.AddFontFile(fontPath);
 
-            lblLogo.Font = new Font(privateFonts.Families[0], 20, FontStyle.Regular);
             lblBoasVindas.Font = new Font(privateFonts.Families[0], 20, FontStyle.Regular);
 
         }
@@ -150,6 +149,14 @@ namespace NoteCheck
             LoginProfessor loginProfessor = new LoginProfessor(Action);
             this.Hide();
             loginProfessor.ShowDialog();
+            this.Dispose();
+        }
+
+        private void imgLogo_Click(object sender, EventArgs e)
+        {
+            StartScreen startScreen = new StartScreen();
+            this.Hide();
+            startScreen.ShowDialog();
             this.Dispose();
         }
     }

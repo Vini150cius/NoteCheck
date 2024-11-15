@@ -73,6 +73,16 @@ namespace NoteCheck.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LogoTipoNoteCheckFinal {
+            get {
+                object obj = ResourceManager.GetObject("LogoTipoNoteCheckFinal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap seta {
             get {
                 object obj = ResourceManager.GetObject("seta", resourceCulture);

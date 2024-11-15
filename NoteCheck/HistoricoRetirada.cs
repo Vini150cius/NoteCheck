@@ -17,13 +17,16 @@ namespace NoteCheck
     {
 
         MySqlConnection Conexao = null;
+        public string dataSelecionada {  get; set; }
         public void listaGrid()
         {
             string data_source = "datasource=localhost; username=root; database=notecheck";
             Conexao = new MySqlConnection(data_source);
-            string strSQL = "SELECT * FROM uso_notebook;";
-
+            string strSQL = "CALL sp_historico_listar(@dataRetirada);";
             MySqlCommand comando = new MySqlCommand(strSQL, Conexao);
+            comando.Parameters.AddWithValue("@dataRetirada", dataSelecionada);
+
+
 
             Conexao.Open();
 
@@ -60,7 +63,6 @@ namespace NoteCheck
             string fontPath = @"./Bebas-Regular.ttf";
             privateFonts.AddFontFile(fontPath);
 
-            lblLogo.Font = new Font(privateFonts.Families[0], 20, FontStyle.Regular);
             lblBoasVindas.Font = new Font(privateFonts.Families[0], 20, FontStyle.Regular);
         }
         private void LoadFontLouis()
@@ -125,6 +127,12 @@ namespace NoteCheck
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dtpDataDesejada_ValueChanged(object sender, EventArgs e)
+        {
+            dataSelecionada = dtpDataDesejada.Value.ToString("yyyy-MM-dd");
+            listaGrid();
         }
     }
 }

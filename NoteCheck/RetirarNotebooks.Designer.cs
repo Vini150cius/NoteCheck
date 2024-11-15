@@ -49,11 +49,10 @@
             this.pnlControles = new System.Windows.Forms.Panel();
             this.lblCurso = new System.Windows.Forms.Label();
             this.lblProfessorNome = new System.Windows.Forms.Label();
-            this.imgLogo = new System.Windows.Forms.PictureBox();
-            this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.tmrTelas = new System.Windows.Forms.Timer(this.components);
+            this.imgLogo = new System.Windows.Forms.PictureBox();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlTimer.SuspendLayout();
@@ -264,10 +263,9 @@
             // pnlControles
             // 
             this.pnlControles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(73)))), ((int)(((byte)(96)))));
+            this.pnlControles.Controls.Add(this.imgLogo);
             this.pnlControles.Controls.Add(this.lblCurso);
             this.pnlControles.Controls.Add(this.lblProfessorNome);
-            this.pnlControles.Controls.Add(this.imgLogo);
-            this.pnlControles.Controls.Add(this.lblLogo);
             this.pnlControles.Controls.Add(this.btnMinimizar);
             this.pnlControles.Controls.Add(this.btnFechar);
             this.pnlControles.Location = new System.Drawing.Point(0, 0);
@@ -280,7 +278,7 @@
             this.lblCurso.AutoSize = true;
             this.lblCurso.Font = new System.Drawing.Font("Bebas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.lblCurso.Location = new System.Drawing.Point(509, 8);
+            this.lblCurso.Location = new System.Drawing.Point(518, 7);
             this.lblCurso.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCurso.Name = "lblCurso";
             this.lblCurso.Size = new System.Drawing.Size(363, 24);
@@ -293,34 +291,12 @@
             this.lblProfessorNome.AutoSize = true;
             this.lblProfessorNome.Font = new System.Drawing.Font("Bebas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProfessorNome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.lblProfessorNome.Location = new System.Drawing.Point(175, 8);
+            this.lblProfessorNome.Location = new System.Drawing.Point(198, 8);
             this.lblProfessorNome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProfessorNome.Name = "lblProfessorNome";
             this.lblProfessorNome.Size = new System.Drawing.Size(108, 24);
             this.lblProfessorNome.TabIndex = 9;
             this.lblProfessorNome.Text = "Nome do prof";
-            // 
-            // imgLogo
-            // 
-            this.imgLogo.BackgroundImage = global::NoteCheck.Properties.Resources.logoBeta;
-            this.imgLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgLogo.Location = new System.Drawing.Point(11, 4);
-            this.imgLogo.Name = "imgLogo";
-            this.imgLogo.Size = new System.Drawing.Size(36, 33);
-            this.imgLogo.TabIndex = 3;
-            this.imgLogo.TabStop = false;
-            // 
-            // lblLogo
-            // 
-            this.lblLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lblLogo.AutoSize = true;
-            this.lblLogo.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.lblLogo.Location = new System.Drawing.Point(53, 4);
-            this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(117, 32);
-            this.lblLogo.TabIndex = 2;
-            this.lblLogo.Text = "NoteCheck";
             // 
             // btnMinimizar
             // 
@@ -364,6 +340,17 @@
             this.tmrTelas.Interval = 1;
             this.tmrTelas.Tick += new System.EventHandler(this.tmrTelas_Tick);
             // 
+            // imgLogo
+            // 
+            this.imgLogo.BackgroundImage = global::NoteCheck.Properties.Resources.LogoTipoNoteCheckFinal;
+            this.imgLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgLogo.Location = new System.Drawing.Point(27, 6);
+            this.imgLogo.Name = "imgLogo";
+            this.imgLogo.Size = new System.Drawing.Size(166, 30);
+            this.imgLogo.TabIndex = 11;
+            this.imgLogo.TabStop = false;
+            this.imgLogo.Click += new System.EventHandler(this.imgLogo_Click);
+            // 
             // RetirarNotebooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,8 +381,6 @@
         private System.Windows.Forms.Panel pnlProgram;
         private System.Windows.Forms.Label lblRetirar;
         private System.Windows.Forms.Panel pnlControles;
-        private System.Windows.Forms.PictureBox imgLogo;
-        private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Label lblProfessorNome;
@@ -414,5 +399,6 @@
         private System.Windows.Forms.Label lblNumeroNote;
         private System.Windows.Forms.TextBox txtNumeroNote;
         private System.Windows.Forms.TextBox txtStatus;
+        private System.Windows.Forms.PictureBox imgLogo;
     }
 }

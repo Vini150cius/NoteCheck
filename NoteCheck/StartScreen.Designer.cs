@@ -41,14 +41,13 @@ namespace NoteCheck
             this.lblBoasVindas = new System.Windows.Forms.Label();
             this.btnRetirar = new System.Windows.Forms.Button();
             this.pnlControles = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.imgLogo = new System.Windows.Forms.PictureBox();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlControles.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBack
@@ -146,35 +145,13 @@ namespace NoteCheck
             // pnlControles
             // 
             this.pnlControles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(73)))), ((int)(((byte)(96)))));
-            this.pnlControles.Controls.Add(this.pictureBox1);
-            this.pnlControles.Controls.Add(this.lblLogo);
+            this.pnlControles.Controls.Add(this.imgLogo);
             this.pnlControles.Controls.Add(this.btnMinimizar);
             this.pnlControles.Controls.Add(this.btnFechar);
             this.pnlControles.Location = new System.Drawing.Point(0, 0);
             this.pnlControles.Name = "pnlControles";
             this.pnlControles.Size = new System.Drawing.Size(969, 40);
             this.pnlControles.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::NoteCheck.Properties.Resources.logoBeta;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 33);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lblLogo
-            // 
-            this.lblLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lblLogo.AutoSize = true;
-            this.lblLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.lblLogo.Location = new System.Drawing.Point(53, 4);
-            this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(61, 13);
-            this.lblLogo.TabIndex = 2;
-            this.lblLogo.Text = "NoteCheck";
             // 
             // btnMinimizar
             // 
@@ -212,6 +189,17 @@ namespace NoteCheck
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
+            // imgLogo
+            // 
+            this.imgLogo.BackgroundImage = global::NoteCheck.Properties.Resources.LogoTipoNoteCheckFinal;
+            this.imgLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgLogo.Location = new System.Drawing.Point(27, 6);
+            this.imgLogo.Name = "imgLogo";
+            this.imgLogo.Size = new System.Drawing.Size(166, 30);
+            this.imgLogo.TabIndex = 12;
+            this.imgLogo.TabStop = false;
+            this.imgLogo.Click += new System.EventHandler(this.imgLogo_Click);
+            // 
             // StartScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,8 +216,7 @@ namespace NoteCheck
             this.pnlProgram.ResumeLayout(false);
             this.pnlProgram.PerformLayout();
             this.pnlControles.ResumeLayout(false);
-            this.pnlControles.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -242,11 +229,10 @@ namespace NoteCheck
         private Panel pnlControles;
         private Button btnFechar;
         private Button btnMinimizar;
-        private Label lblLogo;
-        private PictureBox pictureBox1;
         private Button btnRetirar;
         private Button btnStatus;
         private Button btnHistorico;
         private Button btnEntregar;
+        private PictureBox imgLogo;
     }
 }

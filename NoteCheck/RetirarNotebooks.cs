@@ -41,7 +41,6 @@ namespace NoteCheck
             string fontPath = @"./Bebas-Regular.ttf";
             privateFonts.AddFontFile(fontPath);
 
-            lblLogo.Font = new Font(privateFonts.Families[0], 20, FontStyle.Regular);
             lblRetirar.Font = new Font(privateFonts.Families[0], 20, FontStyle.Regular);
             lblProfessorNome.Font = new Font(privateFonts.Families[0], 15, FontStyle.Regular);
             lblCurso.Font = new Font(privateFonts.Families[0], 15, FontStyle.Regular);
@@ -269,6 +268,14 @@ namespace NoteCheck
             else {
                 txtStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             }
+        }
+
+        private void imgLogo_Click(object sender, EventArgs e)
+        {
+            StartScreen startScreen = new StartScreen();
+            this.Hide();
+            startScreen.ShowDialog();
+            this.Dispose();
         }
     }
 }

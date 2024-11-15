@@ -142,6 +142,7 @@
     <Compile Include="StatusNotebook.Designer.cs">
       <DependentUpon>StatusNotebook.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\LogoTipoNoteCheckFinal.png" />
     <EmbeddedResource Include="HistoricoRetirada.resx">
       <DependentUpon>HistoricoRetirada.cs</DependentUpon>
     </EmbeddedResource>

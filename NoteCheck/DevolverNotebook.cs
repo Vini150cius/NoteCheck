@@ -33,7 +33,6 @@ namespace NoteCheck
             string fontPath = @"./Bebas-Regular.ttf";
             privateFonts.AddFontFile(fontPath);
 
-            lblLogo.Font = new Font(privateFonts.Families[0], 20, FontStyle.Regular);
             lblRetirar.Font = new Font(privateFonts.Families[0], 20, FontStyle.Regular);
 
         }
@@ -191,6 +190,13 @@ namespace NoteCheck
                 }
             }
         }
-        
+
+        private void imgLogo_Click(object sender, EventArgs e)
+        {
+            StartScreen startScreen = new StartScreen();
+            this.Hide();
+            startScreen.ShowDialog();
+            this.Dispose();
+        }
     }
 }

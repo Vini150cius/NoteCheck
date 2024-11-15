@@ -45,7 +45,6 @@
             this.lblAcao = new System.Windows.Forms.Label();
             this.pnlControles = new System.Windows.Forms.Panel();
             this.imgLogo = new System.Windows.Forms.PictureBox();
-            this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.pnlBack.SuspendLayout();
@@ -256,7 +255,6 @@
             // 
             this.pnlControles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(73)))), ((int)(((byte)(96)))));
             this.pnlControles.Controls.Add(this.imgLogo);
-            this.pnlControles.Controls.Add(this.lblLogo);
             this.pnlControles.Controls.Add(this.btnMinimizar);
             this.pnlControles.Controls.Add(this.btnFechar);
             this.pnlControles.Location = new System.Drawing.Point(0, 0);
@@ -266,25 +264,14 @@
             // 
             // imgLogo
             // 
-            this.imgLogo.BackgroundImage = global::NoteCheck.Properties.Resources.logoBeta;
+            this.imgLogo.BackgroundImage = global::NoteCheck.Properties.Resources.LogoTipoNoteCheckFinal;
             this.imgLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgLogo.Location = new System.Drawing.Point(11, 4);
+            this.imgLogo.Location = new System.Drawing.Point(27, 6);
             this.imgLogo.Name = "imgLogo";
-            this.imgLogo.Size = new System.Drawing.Size(36, 33);
-            this.imgLogo.TabIndex = 3;
+            this.imgLogo.Size = new System.Drawing.Size(166, 30);
+            this.imgLogo.TabIndex = 10;
             this.imgLogo.TabStop = false;
             this.imgLogo.Click += new System.EventHandler(this.imgLogo_Click);
-            // 
-            // lblLogo
-            // 
-            this.lblLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lblLogo.AutoSize = true;
-            this.lblLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
-            this.lblLogo.Location = new System.Drawing.Point(53, 4);
-            this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(61, 13);
-            this.lblLogo.TabIndex = 2;
-            this.lblLogo.Text = "NoteCheck";
             // 
             // btnMinimizar
             // 
@@ -338,7 +325,6 @@
             this.pnlProgram.ResumeLayout(false);
             this.pnlProgram.PerformLayout();
             this.pnlControles.ResumeLayout(false);
-            this.pnlControles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -351,8 +337,6 @@
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label lblAcao;
         private System.Windows.Forms.Panel pnlControles;
-        private System.Windows.Forms.PictureBox imgLogo;
-        private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Label lblCampoNome;
@@ -364,5 +348,6 @@
         private System.Windows.Forms.ComboBox cbxAno;
         private System.Windows.Forms.ComboBox cbxCurso;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.PictureBox imgLogo;
     }
 }
