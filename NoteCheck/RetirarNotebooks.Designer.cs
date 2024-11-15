@@ -47,12 +47,12 @@
             this.txtNomeAluno = new System.Windows.Forms.TextBox();
             this.lblRetirar = new System.Windows.Forms.Label();
             this.pnlControles = new System.Windows.Forms.Panel();
+            this.imgLogo = new System.Windows.Forms.PictureBox();
             this.lblCurso = new System.Windows.Forms.Label();
             this.lblProfessorNome = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.tmrTelas = new System.Windows.Forms.Timer(this.components);
-            this.imgLogo = new System.Windows.Forms.PictureBox();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlTimer.SuspendLayout();
@@ -211,7 +211,7 @@
             this.lblNumeroNote.Name = "lblNumeroNote";
             this.lblNumeroNote.Size = new System.Drawing.Size(167, 17);
             this.lblNumeroNote.TabIndex = 12;
-            this.lblNumeroNote.Text = "Numero do notebook:";
+            this.lblNumeroNote.Text = "Número do notebook:";
             // 
             // txtNumeroNote
             // 
@@ -272,6 +272,17 @@
             this.pnlControles.Name = "pnlControles";
             this.pnlControles.Size = new System.Drawing.Size(969, 40);
             this.pnlControles.TabIndex = 2;
+            // 
+            // imgLogo
+            // 
+            this.imgLogo.BackgroundImage = global::NoteCheck.Properties.Resources.LogoTipoNoteCheckFinal;
+            this.imgLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgLogo.Location = new System.Drawing.Point(27, 6);
+            this.imgLogo.Name = "imgLogo";
+            this.imgLogo.Size = new System.Drawing.Size(166, 30);
+            this.imgLogo.TabIndex = 11;
+            this.imgLogo.TabStop = false;
+            this.imgLogo.Click += new System.EventHandler(this.imgLogo_Click);
             // 
             // lblCurso
             // 
@@ -339,17 +350,6 @@
             this.tmrTelas.Enabled = true;
             this.tmrTelas.Interval = 1;
             this.tmrTelas.Tick += new System.EventHandler(this.tmrTelas_Tick);
-            // 
-            // imgLogo
-            // 
-            this.imgLogo.BackgroundImage = global::NoteCheck.Properties.Resources.LogoTipoNoteCheckFinal;
-            this.imgLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgLogo.Location = new System.Drawing.Point(27, 6);
-            this.imgLogo.Name = "imgLogo";
-            this.imgLogo.Size = new System.Drawing.Size(166, 30);
-            this.imgLogo.TabIndex = 11;
-            this.imgLogo.TabStop = false;
-            this.imgLogo.Click += new System.EventHandler(this.imgLogo_Click);
             // 
             // RetirarNotebooks
             // 

@@ -185,7 +185,6 @@ namespace NoteCheck
                         txtNomeAluno.Text = string.Empty;
                         txtNumeroNote.Text = string.Empty;
                         mtbTempoFinal = null;
-                        mtbTempoInicial = null;
                         mtbTempoInicial.Text = DateTime.Now.ToString("HH:mm");
                     }
                 }
@@ -222,6 +221,12 @@ namespace NoteCheck
 
         private void txtNumeroNote_TextChanged(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNumeroNote.Text))
+            {
+                txtStatus.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
+                return;
+            }
+
             if (Int32.Parse(txtNumeroNote.Text) > 0 && Int32.Parse(txtNumeroNote.Text) <= 50)
             {
                 string Conexao = "server=127.0.0.1;port=3306;database=notecheck;user=root;";
