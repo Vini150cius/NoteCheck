@@ -103,10 +103,12 @@
             // 
             this.txtStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtStatus.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtStatus.Enabled = false;
             this.txtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStatus.Location = new System.Drawing.Point(746, 245);
             this.txtStatus.Multiline = true;
             this.txtStatus.Name = "txtStatus";
+            this.txtStatus.ReadOnly = true;
             this.txtStatus.Size = new System.Drawing.Size(20, 20);
             this.txtStatus.TabIndex = 22;
             this.txtStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

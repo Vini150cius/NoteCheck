@@ -18,14 +18,17 @@ namespace NoteCheck
 
         MySqlConnection Conexao = null;
         public string dataSelecionada {  get; set; }
+        public string nomeAluno { get; set; }
+        public string numeroNotebook { get; set; }
         public void listaGrid()
         {
             string data_source = "datasource=localhost; username=root; database=notecheck";
             Conexao = new MySqlConnection(data_source);
-            string strSQL = "CALL sp_historico_listar(@dataRetirada);";
+            string strSQL = "CALL sp_historico_listar(@dataRetirada, @nomeAluno, @numeroNotebook);";
             MySqlCommand comando = new MySqlCommand(strSQL, Conexao);
             comando.Parameters.AddWithValue("@dataRetirada", dataSelecionada);
-
+            comando.Parameters.AddWithValue("@nomeAluno", nomeAluno);
+            comando.Parameters.AddWithValue("@numeroNotebook", numeroNotebook);
 
 
             Conexao.Open();
@@ -174,6 +177,34 @@ namespace NoteCheck
             {
                 txtNumeroNote.Text = "Numero do notebook";
                 txtNumeroNote.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void txtNomeAluno_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNomeAluno.Text == "" || txtNomeAluno.Text == "Nome do aluno" || txtNomeAluno.Text.Length < 1)
+            {
+                nomeAluno = null;
+                listaGrid();
+            }
+            else
+            {
+                nomeAluno = txtNomeAluno.Text;
+                listaGrid();
+            }
+        }
+
+        private void txtNumeroNote_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNumeroNote.Text == "" || txtNumeroNote.Text == "Numero do notebook" || txtNumeroNote.Text.Length < 1)
+            {
+                numeroNotebook = null;
+                listaGrid();
+            }
+            else
+            {
+                numeroNotebook = txtNumeroNote.Text;
+                listaGrid();
             }
         }
     }
