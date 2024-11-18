@@ -108,7 +108,6 @@
             this.txtStatus.Location = new System.Drawing.Point(746, 245);
             this.txtStatus.Multiline = true;
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.ReadOnly = true;
             this.txtStatus.Size = new System.Drawing.Size(20, 20);
             this.txtStatus.TabIndex = 22;
             this.txtStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
