@@ -91,6 +91,11 @@ namespace NoteCheck
             Image resizedImg = new Bitmap(img, new Size(20, 20));
             btnVoltar.Image = resizedImg;
             listaGrid();
+            txtNomeAluno.Text = "Nome do aluno";
+            txtNumeroNote.Text = "Numero do notebook";
+            txtNomeAluno.ForeColor = Color.LightGray;
+            txtNumeroNote.ForeColor = Color.LightGray;
+
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -133,6 +138,43 @@ namespace NoteCheck
         {
             dataSelecionada = dtpDataDesejada.Value.ToString("yyyy-MM-dd");
             listaGrid();
+        }
+
+        private void txtNomeAluno_Enter(object sender, EventArgs e)
+        {
+            if (txtNomeAluno.Text =="Nome do aluno")
+            {
+                txtNomeAluno.Text = "";
+                txtNomeAluno.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtNomeAluno_Leave(object sender, EventArgs e)
+        {
+            if (txtNomeAluno.Text == "")
+            {
+                txtNomeAluno.Text = "Nome do aluno";
+                txtNomeAluno.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void txtNumeroNote_Enter(object sender, EventArgs e)
+        {
+            if (txtNumeroNote.Text == "Numero do notebook")
+            {
+                txtNumeroNote.Text = "";
+                txtNumeroNote.ForeColor = Color.Black;
+            }
+
+        }
+
+        private void txtNumeroNote_Leave(object sender, EventArgs e)
+        {
+            if (txtNumeroNote.Text == "")
+            {
+                txtNumeroNote.Text = "Numero do notebook";
+                txtNumeroNote.ForeColor = Color.LightGray;
+            }
         }
     }
 }
