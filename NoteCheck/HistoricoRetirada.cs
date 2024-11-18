@@ -157,7 +157,7 @@ namespace NoteCheck
             if (txtNomeAluno.Text == "")
             {
                 txtNomeAluno.Text = "Nome do aluno";
-                txtNomeAluno.ForeColor = Color.LightGray;
+                txtNomeAluno.ForeColor = Color.Gray;
             }
         }
 
@@ -176,7 +176,7 @@ namespace NoteCheck
             if (txtNumeroNote.Text == "")
             {
                 txtNumeroNote.Text = "Numero do notebook";
-                txtNumeroNote.ForeColor = Color.LightGray;
+                txtNumeroNote.ForeColor = Color.Gray;
             }
         }
 

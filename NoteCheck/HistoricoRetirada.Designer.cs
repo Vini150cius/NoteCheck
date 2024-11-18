@@ -90,10 +90,10 @@
             // txtNumeroNote
             // 
             this.txtNumeroNote.Font = new System.Drawing.Font("Louis George Cafe", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroNote.Location = new System.Drawing.Point(861, 98);
+            this.txtNumeroNote.Location = new System.Drawing.Point(807, 97);
             this.txtNumeroNote.Margin = new System.Windows.Forms.Padding(2);
             this.txtNumeroNote.Name = "txtNumeroNote";
-            this.txtNumeroNote.Size = new System.Drawing.Size(95, 23);
+            this.txtNumeroNote.Size = new System.Drawing.Size(148, 23);
             this.txtNumeroNote.TabIndex = 31;
             this.txtNumeroNote.TextChanged += new System.EventHandler(this.txtNumeroNote_TextChanged);
             this.txtNumeroNote.Enter += new System.EventHandler(this.txtNumeroNote_Enter);
@@ -102,10 +102,10 @@
             // txtNomeAluno
             // 
             this.txtNomeAluno.Font = new System.Drawing.Font("Louis George Cafe", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeAluno.Location = new System.Drawing.Point(701, 98);
+            this.txtNomeAluno.Location = new System.Drawing.Point(606, 97);
             this.txtNomeAluno.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomeAluno.Name = "txtNomeAluno";
-            this.txtNomeAluno.Size = new System.Drawing.Size(149, 23);
+            this.txtNomeAluno.Size = new System.Drawing.Size(187, 23);
             this.txtNomeAluno.TabIndex = 30;
             this.txtNomeAluno.TextChanged += new System.EventHandler(this.txtNomeAluno_TextChanged);
             this.txtNomeAluno.Enter += new System.EventHandler(this.txtNomeAluno_Enter);
