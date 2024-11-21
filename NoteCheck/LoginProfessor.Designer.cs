@@ -107,6 +107,7 @@
             // 
             // cbxAno
             // 
+            this.cbxAno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxAno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxAno.FormattingEnabled = true;
             this.cbxAno.Items.AddRange(new object[] {
@@ -122,6 +123,7 @@
             // 
             // cbxCurso
             // 
+            this.cbxCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxCurso.FormattingEnabled = true;
             this.cbxCurso.Items.AddRange(new object[] {
