@@ -18,17 +18,21 @@ namespace NoteCheck
 
         MySqlConnection Conexao = null;
         public string dataSelecionada {  get; set; }
+        public string dataInicial { get; set; }
+        public string dataFinal { get; set; }
         public string nomeAluno { get; set; }
         public string numeroNotebook { get; set; }
         public void listaGrid()
         {
             string data_source = "datasource=localhost; username=root; database=notecheck";
             Conexao = new MySqlConnection(data_source);
-            string strSQL = "CALL sp_historico_listar(@dataRetirada, @nomeAluno, @numeroNotebook);";
+            string strSQL = "CALL sp_historico_listar(@dataRetirada, @nomeAluno, @numeroNotebook, @dataInicial, @dataFinal);";
             MySqlCommand comando = new MySqlCommand(strSQL, Conexao);
             comando.Parameters.AddWithValue("@dataRetirada", dataSelecionada);
             comando.Parameters.AddWithValue("@nomeAluno", nomeAluno);
             comando.Parameters.AddWithValue("@numeroNotebook", numeroNotebook);
+            comando.Parameters.AddWithValue("@dataInicial", dataInicial);
+            comando.Parameters.AddWithValue("@dataFinal", dataFinal);
 
 
             Conexao.Open();
@@ -98,7 +102,7 @@ namespace NoteCheck
             txtNumeroNote.Text = "Numero do notebook";
             txtNomeAluno.ForeColor = Color.LightGray;
             txtNumeroNote.ForeColor = Color.LightGray;
-
+            cbxTipoRelatorio.SelectedIndex = 0;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -206,6 +210,48 @@ namespace NoteCheck
                 numeroNotebook = txtNumeroNote.Text;
                 listaGrid();
             }
+        }
+
+        private void cbxTipoRelatorio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxTipoRelatorio.Text == "Diário")
+            {
+                dtpDataDesejada.Visible = true;
+                dtpDataInicial.Visible = false;
+                dtpDataFinal.Visible = false;
+                lblAte.Visible = false;
+
+            }else if (cbxTipoRelatorio.Text == "Outro")
+            {
+                dtpDataDesejada.Visible = false;
+                dtpDataInicial.Visible = true;
+                dtpDataFinal.Visible = true;
+                lblAte.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Tipo de relatório indisponível, erro!!", "ERRO de relatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpDataDesejada.Visible = false;
+                dtpDataInicial.Visible = false;
+                dtpDataFinal.Visible = false;
+                lblAte.Visible = false;
+            }
+        }
+
+        private void dtpDataInicial_ValueChanged(object sender, EventArgs e)
+        {
+            dataInicial = dtpDataInicial.Value.ToString("yyyy-MM-dd");
+            dataFinal = dtpDataFinal.Value.ToString("yyyy-MM-dd");
+
+            listaGrid();
+        }
+
+        private void dtpDataFinal_ValueChanged(object sender, EventArgs e)
+        {
+            dataInicial = dtpDataInicial.Value.ToString("yyyy-MM-dd");
+            dataFinal = dtpDataFinal.Value.ToString("yyyy-MM-dd");
+
+            listaGrid();
         }
     }
 }

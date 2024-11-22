@@ -113,24 +113,32 @@ namespace NoteCheck
         }
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            if (lblCampoNome.Text.Length < 3)
+            if (txtNome.Text.Length < 3)
             {
-                MessageBox.Show("Nome inválido ou muito pequeno!!", "Campo de nome inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nome inválido ou muito pequeno!", "Campo de nome inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else if (lblCampoSenha.Text.Length < 3)
+
+            if (txtSenha.Text.Length < 3)
             {
-                MessageBox.Show("Senha inválido ou muito pequena!!", "Campo de senha inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Senha inválida ou muito pequena!", "Campo de senha inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else if (cbxCurso.Text.Length < 3)
+
+            if (Action == "Retirar")
             {
-                MessageBox.Show("Curso inválido ou muito pequeno!!", "Campo de curso inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (cbxCurso.Text.Length < 3)
+                {
+                    MessageBox.Show("Curso inválido ou muito pequeno!", "Campo de curso inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (cbxAno.Text.Length < 3)
+                {
+                    MessageBox.Show("Ano inválido ou muito pequeno!", "Campo de ano inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
-            else if (cbxAno.Text.Length < 3)
-            {
-                MessageBox.Show("Ano inválido ou muito pequeno!!", "Campo de ano inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
                 MySqlConnection Conexao = null;
                 try
                 {
@@ -189,7 +197,7 @@ namespace NoteCheck
                         Conexao.Close();
                     }
                 }
-            }
+            
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)

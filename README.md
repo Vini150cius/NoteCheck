@@ -1,6 +1,7 @@
 # NoteCheck
 ---
 <img src="./NoteCheck/Resources/LogoTipoNoteCheckFinal.png" alt="Logo do projeto">
+
 ---
 
 ## Descrição do Projeto
