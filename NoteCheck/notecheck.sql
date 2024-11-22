@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18/11/2024 às 22:49
+-- Tempo de geração: 22/11/2024 às 02:09
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -27,7 +27,7 @@ DELIMITER $$
 --
 -- Procedimentos
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_historico_listar` (IN `dataRetirada` DATE, IN `nomeAluno` VARCHAR(150), IN `numeroNotebook` INT)   BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_historico_listar` (IN `dataRetirada` DATE, IN `nomeAluno` VARCHAR(150), IN `numeroNotebook` INT, IN `dataInicio` DATE, IN `dataFim` DATE)   BEGIN
     IF (dataRetirada IS NOT NULL) THEN
         SELECT * FROM uso_notebook WHERE data_retirada = dataRetirada;
     END IF;
@@ -40,7 +40,11 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_historico_listar` (IN `dataRetir
         SELECT * FROM uso_notebook WHERE numero_notebook = numeroNotebook;
     END IF;
 
-    IF (dataRetirada IS NULL AND nomeAluno IS NULL AND numeroNotebook IS NULL) THEN
+    IF (dataInicio IS NOT NULL AND dataFim IS NOT NULL) THEN
+        SELECT * FROM uso_notebook WHERE data_retirada BETWEEN dataInicio AND dataFim;
+    END IF;
+
+    IF (dataRetirada IS NULL AND nomeAluno IS NULL AND numeroNotebook IS NULL AND dataInicio IS NULL AND dataFim IS NULL) THEN
         SELECT * FROM uso_notebook;
     END IF;
 END$$
@@ -123,7 +127,7 @@ INSERT INTO `notebook` (`numero_notebook`, `status_notebook`) VALUES
 (24, 'em uso'),
 (25, 'em uso'),
 (26, 'disponível'),
-(27, 'disponível'),
+(27, 'em uso'),
 (28, 'disponível'),
 (29, 'disponível'),
 (30, 'disponível'),
@@ -216,7 +220,8 @@ INSERT INTO `uso_notebook` (`id_uso`, `nome_aluno`, `turma`, `professor_responsa
 (21, 'joy', 'Curso: Secretariado, Ano: 2º Ano', 'magali', '2024-11-15', '18:27:00', '00:00:00', 47),
 (22, 'youe', 'Curso: Meio Ambiente, Ano: 1º Ano', 'magali', '2024-11-15', '18:29:00', '00:00:00', 9),
 (23, 'huio', 'Curso: Design de Interiores, Ano: 2º Ano', 'magali', '2024-11-16', '17:14:00', '00:00:00', 44),
-(24, 'yago', 'Curso: Meio Ambiente, Ano: 2º Ano', 'magali', '2024-11-18', '18:04:00', '18:05:00', 41);
+(24, 'yago', 'Curso: Meio Ambiente, Ano: 2º Ano', 'magali', '2024-11-18', '18:04:00', '18:05:00', 41),
+(25, 'batata', 'Curso: Desenvolvimento de Sistemas, Ano: 2º Ano', 'magali', '2024-11-21', '21:51:00', '00:00:00', 27);
 
 --
 -- Índices para tabelas despejadas
@@ -255,7 +260,7 @@ ALTER TABLE `professor`
 -- AUTO_INCREMENT de tabela `uso_notebook`
 --
 ALTER TABLE `uso_notebook`
-  MODIFY `id_uso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_uso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Restrições para tabelas despejadas
