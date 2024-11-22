@@ -43,6 +43,7 @@ namespace NoteCheck
 
             lblCampoNome.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
             lblCampoSenha.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
+            lblCampoCurso.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
             txtNome.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
             txtSenha.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
             cbxAno.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
