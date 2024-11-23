@@ -20,7 +20,7 @@ namespace NoteCheck
             Application.SetCompatibleTextRenderingDefault(false);
             
             Timer timer = new Timer();
-            timer.Interval = 60000; // 1 minuto (60000 ms)
+            timer.Interval = 60000;
             VerificarTempoExedido ClassVerificarTempo = new VerificarTempoExedido();
             timer.Tick += (sender, e) => ClassVerificarTempo.VerificarTempo();
             timer.Start();

@@ -15,7 +15,7 @@ namespace NoteCheck
         private int toastX, toastY;
         private int y = 100;
         private string InformacoesDoAlerta { get; set; }
-        private static int VerticalOffset = 0; // Rastreamento do deslocamento vertical acumulado
+        private static int VerticalOffset = 0; 
 
         public MessageForm(string informacoesDoAlerta)
         {
@@ -55,7 +55,6 @@ namespace NoteCheck
             this.Location = new Point(toastX, toastY);
             lblMessage.Text = InformacoesDoAlerta;
 
-            // Atualiza o deslocamento para a próxima mensagem
             VerticalOffset += this.Height + 5;
         }
 
@@ -63,7 +62,6 @@ namespace NoteCheck
         {
             base.OnFormClosing(e);
 
-            // Ajusta o deslocamento vertical
             VerticalOffset = Math.Max(0, VerticalOffset - (this.Height + 5));
         }
     }

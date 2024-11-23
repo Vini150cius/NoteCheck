@@ -70,7 +70,7 @@ namespace NoteCheck
             Timer timer = new Timer { Interval = 100 };
             timer.Tick += (s, args) =>
             {
-                timer.Stop(); // Para o timer após executar
+                timer.Stop();
                 VerificarTempoExedido ClassVerificarTempo = new VerificarTempoExedido();
                 ClassVerificarTempo.VerificarTempo();
             };
