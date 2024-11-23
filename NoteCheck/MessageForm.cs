@@ -34,7 +34,6 @@ namespace NoteCheck
                 {
                     MessageHide.Stop();
                     y = 100;
-                    this.Close();
                 }
             }
         }
@@ -58,11 +57,5 @@ namespace NoteCheck
             VerticalOffset += this.Height + 5;
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            base.OnFormClosing(e);
-
-            VerticalOffset = Math.Max(0, VerticalOffset - (this.Height + 5));
-        }
     }
 }

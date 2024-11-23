@@ -166,8 +166,15 @@ namespace NoteCheck
                     comando.Parameters.AddWithValue("@nomeProfessor", NomeProfessor);
                     comando.Parameters.AddWithValue("@dataRetirada", DataAtual);
                     comando.Parameters.AddWithValue("@horaRetirada", mtbTempoInicial.Text);
-                    comando.Parameters.AddWithValue("@horaEntrega", mtbTempoFinal.Text);
                     comando.Parameters.AddWithValue("@numeroNotebook", txtNumeroNote.Text);
+                    if (string.IsNullOrWhiteSpace(mtbTempoFinal.Text))
+                    {
+                        comando.Parameters.AddWithValue("@horaEntrega", DBNull.Value);
+                    }
+                    else
+                    {
+                        comando.Parameters.AddWithValue("@horaEntrega", mtbTempoFinal.Text);
+                    }
 
                     Conexao.Open();
                     comando.ExecuteNonQuery();
@@ -184,7 +191,7 @@ namespace NoteCheck
                         Conexao.Close();
                         txtNomeAluno.Text = string.Empty;
                         txtNumeroNote.Text = string.Empty;
-                        mtbTempoFinal = null;
+                        mtbTempoFinal.Clear();
                         mtbTempoInicial.Text = DateTime.Now.ToString("HH:mm");
                     }
                 }

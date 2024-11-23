@@ -47,6 +47,7 @@
             this.imgLogo = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.lblOrientacao = new System.Windows.Forms.Label();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlControles.SuspendLayout();
@@ -72,6 +73,7 @@
             this.pnlProgram.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlProgram.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(231)))), ((int)(((byte)(226)))));
+            this.pnlProgram.Controls.Add(this.lblOrientacao);
             this.pnlProgram.Controls.Add(this.btnVoltar);
             this.pnlProgram.Controls.Add(this.cbxAno);
             this.pnlProgram.Controls.Add(this.cbxCurso);
@@ -311,6 +313,15 @@
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
+            // lblOrientacao
+            // 
+            this.lblOrientacao.AutoSize = true;
+            this.lblOrientacao.Location = new System.Drawing.Point(396, 215);
+            this.lblOrientacao.Name = "lblOrientacao";
+            this.lblOrientacao.Size = new System.Drawing.Size(135, 13);
+            this.lblOrientacao.TabIndex = 25;
+            this.lblOrientacao.Text = "(Nome e último sobrenome)";
+            // 
             // LoginProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -351,5 +362,6 @@
         private System.Windows.Forms.ComboBox cbxCurso;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.PictureBox imgLogo;
+        private System.Windows.Forms.Label lblOrientacao;
     }
 }

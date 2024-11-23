@@ -19,24 +19,38 @@ namespace NoteCheck
                 string data_source = "datasource=localhost; username=root; database=notecheck";
                 conexao = new MySqlConnection(data_source);
 
-                string sql = "CALL sp_notebooks_tempo_excedido();";
+                string sql = "CALL sp_notebooks_em_uso_excedendo_tempo();";
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
                 conexao.Open();
                 using (MySqlDataReader reader = comando.ExecuteReader())
                 {
+                    int contadorAlunos = 0;
+                    List<string> informacoesAlunos = new List<string>();
+
                     while (reader.Read())
                     {
                         int idNotebook = reader.GetInt32("numero_notebook");
                         string nomeAluno = reader.GetString("nome_aluno");
-                        int horasPassadas = reader.GetInt32("horas_passadas");
+                        int horasPassadas = reader.GetInt32("horas_em_uso");
 
-                        string informacoes = $"Notebook ID: {idNotebook}, do aluno: {nomeAluno}, passou {horasPassadas} horas da retirada.";
+                        informacoesAlunos.Add($"Notebook ID: {idNotebook}, do aluno: {nomeAluno}, passou {horasPassadas} horas da retirada.");
+                        contadorAlunos++;
+                    }
 
-                        MessageForm alerta = new MessageForm(informacoes);
-                        alerta.Show();
-
+                    if (contadorAlunos > 8)
+                    {
+                        string informacoes = $"Atenção! {contadorAlunos} alunos estão com notebooks por mais de 5 horas";
+                        MessageBox.Show(informacoes);
+                    }
+                    else if (contadorAlunos > 0)
+                    {
+                        foreach (var info in informacoesAlunos)
+                        {
+                            MessageForm alerta = new MessageForm(info);
+                            alerta.Show();
+                        }
                     }
                 }
             }
