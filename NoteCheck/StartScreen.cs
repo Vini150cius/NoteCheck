@@ -52,7 +52,7 @@ namespace NoteCheck
             InitializeComponent();
             LoadFontBebas();
             LoadFontLouis();
-
+            
         }
         private void StartScreen_Load(object sender, EventArgs e)
         {
@@ -66,8 +66,16 @@ namespace NoteCheck
                 (0, 0, btnHistorico.Width, btnHistorico.Height, 40, 40));
             pnlProgram.Region = Region.FromHrgn(CreateRoundRectRgn
                 (0, 0, pnlProgram.Width, pnlProgram.Height, 40, 40));
-        }
 
+            Timer timer = new Timer { Interval = 100 };
+            timer.Tick += (s, args) =>
+            {
+                timer.Stop(); // Para o timer após executar
+                VerificarTempoExedido ClassVerificarTempo = new VerificarTempoExedido();
+                ClassVerificarTempo.VerificarTempo();
+            };
+            timer.Start();
+        }
         private void pnlBack_Paint(object sender, PaintEventArgs e)
         {
 

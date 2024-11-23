@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22/11/2024 às 02:09
+-- Tempo de geração: 23/11/2024 às 01:01
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -47,6 +47,17 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_historico_listar` (IN `dataRetir
     IF (dataRetirada IS NULL AND nomeAluno IS NULL AND numeroNotebook IS NULL AND dataInicio IS NULL AND dataFim IS NULL) THEN
         SELECT * FROM uso_notebook;
     END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_notebooks_tempo_excedido` ()   BEGIN
+    SELECT 
+        numero_notebook,
+	nome_aluno,
+        TIMESTAMPDIFF(HOUR, data_retirada, NOW()) AS horas_passadas
+    FROM 
+        uso_notebook
+    WHERE 
+        TIMESTAMPDIFF(HOUR, data_retirada, NOW()) > 5;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_notebook_devolver` (IN `nomeAluno` VARCHAR(150), `numeroNotebook` INT, `horaEntrega` TIME, `idUso` INT)   BEGIN

@@ -63,9 +63,9 @@ namespace NoteCheck.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap logoBeta {
+        internal static System.Drawing.Bitmap icons8_info_96 {
             get {
-                object obj = ResourceManager.GetObject("logoBeta", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-info-96", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,26 +86,6 @@ namespace NoteCheck.Properties {
         internal static System.Drawing.Bitmap seta {
             get {
                 object obj = ResourceManager.GetObject("seta", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap vivid_blurred_colorful_wallpaper_background {
-            get {
-                object obj = ResourceManager.GetObject("vivid-blurred-colorful-wallpaper-background", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap x {
-            get {
-                object obj = ResourceManager.GetObject("x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

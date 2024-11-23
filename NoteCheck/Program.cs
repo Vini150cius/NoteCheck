@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +18,16 @@ namespace NoteCheck
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            
+            Timer timer = new Timer();
+            timer.Interval = 60000; // 1 minuto (60000 ms)
+            VerificarTempoExedido ClassVerificarTempo = new VerificarTempoExedido();
+            timer.Tick += (sender, e) => ClassVerificarTempo.VerificarTempo();
+            timer.Start();
+
             Application.Run(new StartScreen());
         }
+
+        
     }
 }
