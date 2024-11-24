@@ -32,6 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoricoRetirada));
             this.pnlBack = new System.Windows.Forms.Panel();
             this.pnlProgram = new System.Windows.Forms.Panel();
+            this.lblAte = new System.Windows.Forms.Label();
+            this.dtpDataFinal = new System.Windows.Forms.DateTimePicker();
+            this.dtpDataInicial = new System.Windows.Forms.DateTimePicker();
+            this.cbxTipoRelatorio = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtNumeroNote = new System.Windows.Forms.TextBox();
             this.txtNomeAluno = new System.Windows.Forms.TextBox();
             this.dtpDataDesejada = new System.Windows.Forms.DateTimePicker();
@@ -46,11 +51,6 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.tmrTelas = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbxTipoRelatorio = new System.Windows.Forms.ComboBox();
-            this.dtpDataInicial = new System.Windows.Forms.DateTimePicker();
-            this.dtpDataFinal = new System.Windows.Forms.DateTimePicker();
-            this.lblAte = new System.Windows.Forms.Label();
             this.pnlBack.SuspendLayout();
             this.pnlProgram.SuspendLayout();
             this.pnlTimer.SuspendLayout();
@@ -96,6 +96,61 @@
             this.pnlProgram.Name = "pnlProgram";
             this.pnlProgram.Size = new System.Drawing.Size(969, 510);
             this.pnlProgram.TabIndex = 2;
+            // 
+            // lblAte
+            // 
+            this.lblAte.AutoSize = true;
+            this.lblAte.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAte.Location = new System.Drawing.Point(378, 101);
+            this.lblAte.Name = "lblAte";
+            this.lblAte.Size = new System.Drawing.Size(31, 17);
+            this.lblAte.TabIndex = 36;
+            this.lblAte.Text = "até";
+            // 
+            // dtpDataFinal
+            // 
+            this.dtpDataFinal.Font = new System.Drawing.Font("Louis George Cafe", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataFinal.Location = new System.Drawing.Point(425, 99);
+            this.dtpDataFinal.Name = "dtpDataFinal";
+            this.dtpDataFinal.Size = new System.Drawing.Size(95, 22);
+            this.dtpDataFinal.TabIndex = 35;
+            this.dtpDataFinal.ValueChanged += new System.EventHandler(this.dtpDataFinal_ValueChanged);
+            // 
+            // dtpDataInicial
+            // 
+            this.dtpDataInicial.Font = new System.Drawing.Font("Louis George Cafe", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataInicial.Location = new System.Drawing.Point(267, 98);
+            this.dtpDataInicial.Name = "dtpDataInicial";
+            this.dtpDataInicial.Size = new System.Drawing.Size(95, 22);
+            this.dtpDataInicial.TabIndex = 34;
+            this.dtpDataInicial.ValueChanged += new System.EventHandler(this.dtpDataInicial_ValueChanged);
+            // 
+            // cbxTipoRelatorio
+            // 
+            this.cbxTipoRelatorio.DisplayMember = "Diário";
+            this.cbxTipoRelatorio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipoRelatorio.FormattingEnabled = true;
+            this.cbxTipoRelatorio.Items.AddRange(new object[] {
+            "Diário",
+            "Outro"});
+            this.cbxTipoRelatorio.Location = new System.Drawing.Point(152, 99);
+            this.cbxTipoRelatorio.Name = "cbxTipoRelatorio";
+            this.cbxTipoRelatorio.Size = new System.Drawing.Size(109, 21);
+            this.cbxTipoRelatorio.TabIndex = 33;
+            this.cbxTipoRelatorio.ValueMember = "Diário";
+            this.cbxTipoRelatorio.SelectedIndexChanged += new System.EventHandler(this.cbxTipoRelatorio_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 101);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(133, 17);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Tipo de relatório:";
             // 
             // txtNumeroNote
             // 
@@ -152,6 +207,8 @@
             // 
             // dgDados
             // 
+            this.dgDados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgDados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgDados.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgDados.Location = new System.Drawing.Point(13, 125);
@@ -264,61 +321,6 @@
             // 
             this.tmrTelas.Enabled = true;
             this.tmrTelas.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 101);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 17);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Tipo de relatório:";
-            // 
-            // cbxTipoRelatorio
-            // 
-            this.cbxTipoRelatorio.DisplayMember = "Diário";
-            this.cbxTipoRelatorio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxTipoRelatorio.FormattingEnabled = true;
-            this.cbxTipoRelatorio.Items.AddRange(new object[] {
-            "Diário",
-            "Outro"});
-            this.cbxTipoRelatorio.Location = new System.Drawing.Point(152, 99);
-            this.cbxTipoRelatorio.Name = "cbxTipoRelatorio";
-            this.cbxTipoRelatorio.Size = new System.Drawing.Size(109, 21);
-            this.cbxTipoRelatorio.TabIndex = 33;
-            this.cbxTipoRelatorio.ValueMember = "Diário";
-            this.cbxTipoRelatorio.SelectedIndexChanged += new System.EventHandler(this.cbxTipoRelatorio_SelectedIndexChanged);
-            // 
-            // dtpDataInicial
-            // 
-            this.dtpDataInicial.Font = new System.Drawing.Font("Louis George Cafe", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataInicial.Location = new System.Drawing.Point(267, 98);
-            this.dtpDataInicial.Name = "dtpDataInicial";
-            this.dtpDataInicial.Size = new System.Drawing.Size(95, 22);
-            this.dtpDataInicial.TabIndex = 34;
-            this.dtpDataInicial.ValueChanged += new System.EventHandler(this.dtpDataInicial_ValueChanged);
-            // 
-            // dtpDataFinal
-            // 
-            this.dtpDataFinal.Font = new System.Drawing.Font("Louis George Cafe", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataFinal.Location = new System.Drawing.Point(425, 99);
-            this.dtpDataFinal.Name = "dtpDataFinal";
-            this.dtpDataFinal.Size = new System.Drawing.Size(95, 22);
-            this.dtpDataFinal.TabIndex = 35;
-            this.dtpDataFinal.ValueChanged += new System.EventHandler(this.dtpDataFinal_ValueChanged);
-            // 
-            // lblAte
-            // 
-            this.lblAte.AutoSize = true;
-            this.lblAte.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAte.Location = new System.Drawing.Point(378, 101);
-            this.lblAte.Name = "lblAte";
-            this.lblAte.Size = new System.Drawing.Size(31, 17);
-            this.lblAte.TabIndex = 36;
-            this.lblAte.Text = "até";
             // 
             // HistoricoRetirada
             // 

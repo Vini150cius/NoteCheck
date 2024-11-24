@@ -18,13 +18,6 @@ namespace NoteCheck
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
-            Timer timer = new Timer();
-            timer.Interval = 60000;
-            VerificarTempoExedido ClassVerificarTempo = new VerificarTempoExedido();
-            timer.Tick += (sender, e) => ClassVerificarTempo.VerificarTempo();
-            timer.Start();
-
             Application.Run(new StartScreen());
         }
 

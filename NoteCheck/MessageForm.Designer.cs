@@ -72,7 +72,7 @@
             this.lblMessage.AutoSize = true;
             this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessage.Location = new System.Drawing.Point(66, 24);
-            this.lblMessage.MaximumSize = new System.Drawing.Size(180, 0);
+            this.lblMessage.MaximumSize = new System.Drawing.Size(220, 0);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(69, 13);
             this.lblMessage.TabIndex = 3;

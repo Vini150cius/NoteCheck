@@ -25,17 +25,6 @@ namespace NoteCheck
 
         private void MessageHide_Tick(object sender, EventArgs e)
         {
-            y--;
-            if (y <= 0)
-            {
-                toastY += 1;
-                this.Location = new Point(toastX, toastY += 10);
-                if (toastY > 800)
-                {
-                    MessageHide.Stop();
-                    y = 100;
-                }
-            }
         }
 
         private void MessageForm_Load(object sender, EventArgs e)

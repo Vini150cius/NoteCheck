@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/11/2024 às 01:01
+-- Tempo de geração: 23/11/2024 às 23:22
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -49,15 +49,18 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_historico_listar` (IN `dataRetir
     END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_notebooks_tempo_excedido` ()   BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_notebooks_em_uso_excedendo_tempo` ()   BEGIN
     SELECT 
-        numero_notebook,
-	nome_aluno,
-        TIMESTAMPDIFF(HOUR, data_retirada, NOW()) AS horas_passadas
+        n.numero_notebook,
+        u.nome_aluno,
+        TIMESTAMPDIFF(HOUR, CONCAT(u.data_retirada, ' ', u.hora_retirada), NOW()) AS horas_em_uso
     FROM 
-        uso_notebook
+        uso_notebook u
+    JOIN 
+        notebook n ON u.numero_notebook = n.numero_notebook
     WHERE 
-        TIMESTAMPDIFF(HOUR, data_retirada, NOW()) > 5;
+        n.status_notebook = 'em uso' 
+        AND TIMESTAMPDIFF(HOUR, CONCAT(u.data_retirada, ' ', u.hora_retirada), NOW()) > 5;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_notebook_devolver` (IN `nomeAluno` VARCHAR(150), `numeroNotebook` INT, `horaEntrega` TIME, `idUso` INT)   BEGIN
@@ -112,20 +115,20 @@ CREATE TABLE `notebook` (
 --
 
 INSERT INTO `notebook` (`numero_notebook`, `status_notebook`) VALUES
-(1, 'em uso'),
-(2, 'em uso'),
+(1, 'disponível'),
+(2, 'disponível'),
 (3, 'disponível'),
 (4, 'disponível'),
 (5, 'em uso'),
-(6, 'disponível'),
-(7, 'disponível'),
-(8, 'em uso'),
-(9, 'em uso'),
-(10, 'disponível'),
+(6, 'em uso'),
+(7, 'em uso'),
+(8, 'disponível'),
+(9, 'disponível'),
+(10, 'em uso'),
 (11, 'disponível'),
 (12, 'disponível'),
 (13, 'disponível'),
-(14, 'em uso'),
+(14, 'disponível'),
 (15, 'em uso'),
 (16, 'disponível'),
 (17, 'disponível'),
@@ -134,11 +137,11 @@ INSERT INTO `notebook` (`numero_notebook`, `status_notebook`) VALUES
 (20, 'disponível'),
 (21, 'disponível'),
 (22, 'disponível'),
-(23, 'em uso'),
-(24, 'em uso'),
+(23, 'disponível'),
+(24, 'disponível'),
 (25, 'em uso'),
-(26, 'disponível'),
-(27, 'em uso'),
+(26, 'em uso'),
+(27, 'disponível'),
 (28, 'disponível'),
 (29, 'disponível'),
 (30, 'disponível'),
@@ -147,21 +150,21 @@ INSERT INTO `notebook` (`numero_notebook`, `status_notebook`) VALUES
 (33, 'disponível'),
 (34, 'disponível'),
 (35, 'disponível'),
-(36, 'em uso'),
+(36, 'disponível'),
 (37, 'disponível'),
 (38, 'disponível'),
 (39, 'disponível'),
-(40, 'em uso'),
-(41, 'disponível'),
-(42, 'em uso'),
+(40, 'disponível'),
+(41, 'em uso'),
+(42, 'disponível'),
 (43, 'disponível'),
-(44, 'em uso'),
-(45, 'em uso'),
+(44, 'disponível'),
+(45, 'disponível'),
 (46, 'disponível'),
-(47, 'em uso'),
+(47, 'disponível'),
 (48, 'disponível'),
 (49, 'em uso'),
-(50, 'em uso');
+(50, 'disponível');
 
 -- --------------------------------------------------------
 
@@ -208,31 +211,15 @@ CREATE TABLE `uso_notebook` (
 --
 
 INSERT INTO `uso_notebook` (`id_uso`, `nome_aluno`, `turma`, `professor_responsavel`, `data_retirada`, `hora_retirada`, `hora_entrega`, `numero_notebook`) VALUES
-(1, 'thomas', 'Curso: Design de Interiores, Ano: 3º Ano', 'magali', '2024-10-29', '22:08:00', NULL, 24),
-(2, 'thomas', 'Curso: Design de Interiores, Ano: 3º Ano', 'magali', '2024-10-29', '22:08:00', NULL, 24),
-(3, 'thomas', 'Curso: Meio Ambiente, Ano: 2º Ano', 'magali', '2024-10-29', '22:15:00', NULL, 24),
-(4, 'thomas', 'Curso: Design de Interiores, Ano: 2º Ano', 'magali', '2024-10-29', '22:15:00', NULL, 24),
-(5, 'ibu', 'Curso: Hospedagem, Ano: 2º Ano', 'magali', '2024-10-29', '22:18:00', '18:02:00', 40),
-(6, 'jose', 'Curso: Secretariado, Ano: 3º Ano', 'magali', '2024-10-29', '22:21:00', NULL, 23),
-(7, 'paulo', 'Curso: Hospedagem, Ano: 3º Ano', 'magali', '2024-10-29', '22:23:00', '20:13:00', 36),
-(8, 'thomas', 'Curso: Hospedagem, Ano: 3º Ano', 'magali', '2024-10-30', '18:45:00', NULL, 1),
-(9, 'vinicius', 'Curso: Hospedagem, Ano: 2º Ano', 'magali', '2024-10-30', '21:01:00', NULL, 5),
-(10, 'vinicius', 'Curso: Hospedagem, Ano: 2º Ano', 'magali', '2024-10-30', '21:03:00', NULL, 8),
-(11, 'joão', 'Curso: Hospedagem, Ano: 3º Ano', 'magali', '2024-10-30', '21:05:00', NULL, 36),
-(12, 'thom', 'Curso: Hospedagem, Ano: 2º Ano', 'magali', '2024-10-30', '21:07:00', NULL, 50),
-(13, 'giola', 'Curso: Design de Interiores, Ano: 2º Ano', 'magali', '2024-10-30', '21:08:00', NULL, 42),
-(14, 'gerson', 'Curso: Design de Interiores, Ano: 2º Ano', 'magali', '2024-11-07', '18:03:00', NULL, 40),
-(15, 'otavio', 'Curso: Administração, Ano: Curso', 'magali', '2024-11-07', '11:11:00', '21:59:00', 48),
-(16, 'giovanne', 'Curso: Hospedagem, Ano: 2º Ano', 'magali', '2024-11-15', '18:12:00', '00:00:00', 2),
-(17, 'alguem', 'Curso: Meio Ambiente, Ano: 2º Ano', 'magali', '2024-11-15', '18:15:00', '00:00:00', 45),
-(18, 'titan', 'Curso: Turismo Receptivo, Ano: Curso', 'magali', '2024-11-15', '18:18:00', '00:00:00', 49),
-(19, 'rewr', 'Curso: Turismo Receptivo, Ano: Curso', 'magali', '2024-11-15', '18:24:00', '00:00:00', 15),
-(20, 'yui', 'Curso: Meio Ambiente, Ano: 1º Ano', 'magali', '2024-11-15', '18:25:00', '00:00:00', 14),
-(21, 'joy', 'Curso: Secretariado, Ano: 2º Ano', 'magali', '2024-11-15', '18:27:00', '00:00:00', 47),
-(22, 'youe', 'Curso: Meio Ambiente, Ano: 1º Ano', 'magali', '2024-11-15', '18:29:00', '00:00:00', 9),
-(23, 'huio', 'Curso: Design de Interiores, Ano: 2º Ano', 'magali', '2024-11-16', '17:14:00', '00:00:00', 44),
-(24, 'yago', 'Curso: Meio Ambiente, Ano: 2º Ano', 'magali', '2024-11-18', '18:04:00', '18:05:00', 41),
-(25, 'batata', 'Curso: Desenvolvimento de Sistemas, Ano: 2º Ano', 'magali', '2024-11-21', '21:51:00', '00:00:00', 27);
+(1, 'thomas alfredo', 'Curso: Desenvolvimento de Sistemas, Ano: 2º Ano', 'magali', '2024-11-23', '18:23:00', '00:00:00', 25),
+(2, 'yago yuri', 'Curso: Desenvolvimento de Sistemas, Ano: 2º Ano', 'magali', '2024-11-23', '18:23:00', '00:00:00', 5),
+(3, 'victor hugo', 'Curso: Desenvolvimento de Sistemas, Ano: 2º Ano', 'magali', '2024-11-23', '18:24:00', '00:00:00', 41),
+(4, 'tyson roberto', 'Curso: Desenvolvimento de Sistemas, Ano: 2º Ano', 'magali', '2024-11-23', '18:24:00', '00:00:00', 49),
+(5, 'pedro pedroso', 'Curso: Meio Ambiente, Ano: 3º Ano', 'magali', '2024-11-23', '18:27:00', '00:00:00', 6),
+(6, 'maria gonçalves', 'Curso: Meio Ambiente, Ano: 3º Ano', 'magali', '2024-11-23', '18:28:00', '00:00:00', 10),
+(7, 'ewerthon sanches', 'Curso: Turismo Receptivo, Ano: Curso', 'magali', '2024-11-23', '18:31:00', '00:00:00', 15),
+(8, 'gustavo kaltren', 'Curso: Turismo Receptivo, Ano: Curso', 'magali', '2024-11-23', '18:34:00', '00:00:00', 26),
+(9, 'renato toledo', 'Curso: Turismo Receptivo, Ano: Curso', 'magali', '2024-11-23', '18:34:00', '00:00:00', 7);
 
 --
 -- Índices para tabelas despejadas
@@ -271,7 +258,7 @@ ALTER TABLE `professor`
 -- AUTO_INCREMENT de tabela `uso_notebook`
 --
 ALTER TABLE `uso_notebook`
-  MODIFY `id_uso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_uso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Restrições para tabelas despejadas
