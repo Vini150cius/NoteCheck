@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/11/2024 às 23:22
+-- Tempo de geração: 24/11/2024 às 02:06
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -53,14 +53,18 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_notebooks_em_uso_excedendo_tempo
     SELECT 
         n.numero_notebook,
         u.nome_aluno,
-        TIMESTAMPDIFF(HOUR, CONCAT(u.data_retirada, ' ', u.hora_retirada), NOW()) AS horas_em_uso
+        TIMESTAMPDIFF(HOUR, 
+            CONCAT(u.data_retirada, ' ', u.hora_retirada), 
+            NOW()) AS horas_em_uso
     FROM 
         uso_notebook u
     JOIN 
         notebook n ON u.numero_notebook = n.numero_notebook
     WHERE 
         n.status_notebook = 'em uso' 
-        AND TIMESTAMPDIFF(HOUR, CONCAT(u.data_retirada, ' ', u.hora_retirada), NOW()) > 5;
+        AND TIMESTAMPDIFF(HOUR, 
+            CAST(CONCAT(u.data_retirada, ' ', u.hora_retirada) AS DATETIME),
+            NOW()) > 5;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_notebook_devolver` (IN `nomeAluno` VARCHAR(150), `numeroNotebook` INT, `horaEntrega` TIME, `idUso` INT)   BEGIN
@@ -119,9 +123,9 @@ INSERT INTO `notebook` (`numero_notebook`, `status_notebook`) VALUES
 (2, 'disponível'),
 (3, 'disponível'),
 (4, 'disponível'),
-(5, 'em uso'),
-(6, 'em uso'),
-(7, 'em uso'),
+(5, 'disponível'),
+(6, 'disponível'),
+(7, 'disponível'),
 (8, 'disponível'),
 (9, 'disponível'),
 (10, 'em uso'),
@@ -129,7 +133,7 @@ INSERT INTO `notebook` (`numero_notebook`, `status_notebook`) VALUES
 (12, 'disponível'),
 (13, 'disponível'),
 (14, 'disponível'),
-(15, 'em uso'),
+(15, 'disponível'),
 (16, 'disponível'),
 (17, 'disponível'),
 (18, 'disponível'),
@@ -139,7 +143,7 @@ INSERT INTO `notebook` (`numero_notebook`, `status_notebook`) VALUES
 (22, 'disponível'),
 (23, 'disponível'),
 (24, 'disponível'),
-(25, 'em uso'),
+(25, 'disponível'),
 (26, 'em uso'),
 (27, 'disponível'),
 (28, 'disponível'),
@@ -155,7 +159,7 @@ INSERT INTO `notebook` (`numero_notebook`, `status_notebook`) VALUES
 (38, 'disponível'),
 (39, 'disponível'),
 (40, 'disponível'),
-(41, 'em uso'),
+(41, 'disponível'),
 (42, 'disponível'),
 (43, 'disponível'),
 (44, 'disponível'),
@@ -211,15 +215,15 @@ CREATE TABLE `uso_notebook` (
 --
 
 INSERT INTO `uso_notebook` (`id_uso`, `nome_aluno`, `turma`, `professor_responsavel`, `data_retirada`, `hora_retirada`, `hora_entrega`, `numero_notebook`) VALUES
-(1, 'thomas alfredo', 'Curso: Desenvolvimento de Sistemas, Ano: 2º Ano', 'magali', '2024-11-23', '18:23:00', '00:00:00', 25),
-(2, 'yago yuri', 'Curso: Desenvolvimento de Sistemas, Ano: 2º Ano', 'magali', '2024-11-23', '18:23:00', '00:00:00', 5),
-(3, 'victor hugo', 'Curso: Desenvolvimento de Sistemas, Ano: 2º Ano', 'magali', '2024-11-23', '18:24:00', '00:00:00', 41),
+(1, 'thomas alfredo', 'Curso: Desenvolvimento de Sistemas, Ano: 2º Ano', 'magali', '2024-11-23', '18:23:00', '21:49:00', 25),
+(2, 'yago yuri', 'Curso: Desenvolvimento de Sistemas, Ano: 2º Ano', 'magali', '2024-11-23', '18:23:00', '21:49:00', 5),
+(3, 'victor hugo', 'Curso: Desenvolvimento de Sistemas, Ano: 2º Ano', 'magali', '2024-11-23', '18:24:00', '21:49:00', 41),
 (4, 'tyson roberto', 'Curso: Desenvolvimento de Sistemas, Ano: 2º Ano', 'magali', '2024-11-23', '18:24:00', '00:00:00', 49),
-(5, 'pedro pedroso', 'Curso: Meio Ambiente, Ano: 3º Ano', 'magali', '2024-11-23', '18:27:00', '00:00:00', 6),
+(5, 'pedro pedroso', 'Curso: Meio Ambiente, Ano: 3º Ano', 'magali', '2024-11-23', '18:27:00', '21:49:00', 6),
 (6, 'maria gonçalves', 'Curso: Meio Ambiente, Ano: 3º Ano', 'magali', '2024-11-23', '18:28:00', '00:00:00', 10),
-(7, 'ewerthon sanches', 'Curso: Turismo Receptivo, Ano: Curso', 'magali', '2024-11-23', '18:31:00', '00:00:00', 15),
+(7, 'ewerthon sanches', 'Curso: Turismo Receptivo, Ano: Curso', 'magali', '2024-11-23', '18:31:00', '20:19:00', 15),
 (8, 'gustavo kaltren', 'Curso: Turismo Receptivo, Ano: Curso', 'magali', '2024-11-23', '18:34:00', '00:00:00', 26),
-(9, 'renato toledo', 'Curso: Turismo Receptivo, Ano: Curso', 'magali', '2024-11-23', '18:34:00', '00:00:00', 7);
+(9, 'renato toledo', 'Curso: Turismo Receptivo, Ano: Curso', 'magali', '2024-11-23', '18:34:00', '21:49:00', 7);
 
 --
 -- Índices para tabelas despejadas
