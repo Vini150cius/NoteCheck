@@ -78,6 +78,15 @@ namespace NoteCheck
             privateFonts.AddFontFile(fontPath);
 
             btnVoltar.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
+            lblTipo.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
+            lblAte.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
+            cbxTipoRelatorio.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
+            dtpDataDesejada.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
+            dtpDataFinal.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
+            dtpDataInicial.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
+            txtNomeAluno.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
+            txtNumeroNote.Font = new Font(privateFonts.Families[1], 12, FontStyle.Bold);
+
         }
         public HistoricoRetirada()
         {

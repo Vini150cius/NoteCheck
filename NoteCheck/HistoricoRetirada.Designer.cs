@@ -36,7 +36,7 @@
             this.dtpDataFinal = new System.Windows.Forms.DateTimePicker();
             this.dtpDataInicial = new System.Windows.Forms.DateTimePicker();
             this.cbxTipoRelatorio = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTipo = new System.Windows.Forms.Label();
             this.txtNumeroNote = new System.Windows.Forms.TextBox();
             this.txtNomeAluno = new System.Windows.Forms.TextBox();
             this.dtpDataDesejada = new System.Windows.Forms.DateTimePicker();
@@ -82,7 +82,7 @@
             this.pnlProgram.Controls.Add(this.dtpDataFinal);
             this.pnlProgram.Controls.Add(this.dtpDataInicial);
             this.pnlProgram.Controls.Add(this.cbxTipoRelatorio);
-            this.pnlProgram.Controls.Add(this.label1);
+            this.pnlProgram.Controls.Add(this.lblTipo);
             this.pnlProgram.Controls.Add(this.txtNumeroNote);
             this.pnlProgram.Controls.Add(this.txtNomeAluno);
             this.pnlProgram.Controls.Add(this.dtpDataDesejada);
@@ -100,30 +100,30 @@
             // lblAte
             // 
             this.lblAte.AutoSize = true;
-            this.lblAte.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAte.Location = new System.Drawing.Point(378, 101);
+            this.lblAte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAte.Location = new System.Drawing.Point(380, 97);
             this.lblAte.Name = "lblAte";
-            this.lblAte.Size = new System.Drawing.Size(31, 17);
+            this.lblAte.Size = new System.Drawing.Size(35, 20);
             this.lblAte.TabIndex = 36;
             this.lblAte.Text = "até";
             // 
             // dtpDataFinal
             // 
-            this.dtpDataFinal.Font = new System.Drawing.Font("Louis George Cafe", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataFinal.Location = new System.Drawing.Point(425, 99);
+            this.dtpDataFinal.Location = new System.Drawing.Point(418, 97);
             this.dtpDataFinal.Name = "dtpDataFinal";
-            this.dtpDataFinal.Size = new System.Drawing.Size(95, 22);
+            this.dtpDataFinal.Size = new System.Drawing.Size(110, 22);
             this.dtpDataFinal.TabIndex = 35;
             this.dtpDataFinal.ValueChanged += new System.EventHandler(this.dtpDataFinal_ValueChanged);
             // 
             // dtpDataInicial
             // 
-            this.dtpDataInicial.Font = new System.Drawing.Font("Louis George Cafe", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataInicial.Location = new System.Drawing.Point(267, 98);
+            this.dtpDataInicial.Location = new System.Drawing.Point(267, 97);
             this.dtpDataInicial.Name = "dtpDataInicial";
-            this.dtpDataInicial.Size = new System.Drawing.Size(95, 22);
+            this.dtpDataInicial.Size = new System.Drawing.Size(110, 22);
             this.dtpDataInicial.TabIndex = 34;
             this.dtpDataInicial.ValueChanged += new System.EventHandler(this.dtpDataInicial_ValueChanged);
             // 
@@ -135,30 +135,30 @@
             this.cbxTipoRelatorio.Items.AddRange(new object[] {
             "Diário",
             "Outro"});
-            this.cbxTipoRelatorio.Location = new System.Drawing.Point(152, 99);
+            this.cbxTipoRelatorio.Location = new System.Drawing.Point(152, 97);
             this.cbxTipoRelatorio.Name = "cbxTipoRelatorio";
             this.cbxTipoRelatorio.Size = new System.Drawing.Size(109, 21);
             this.cbxTipoRelatorio.TabIndex = 33;
             this.cbxTipoRelatorio.ValueMember = "Diário";
             this.cbxTipoRelatorio.SelectedIndexChanged += new System.EventHandler(this.cbxTipoRelatorio_SelectedIndexChanged);
             // 
-            // label1
+            // lblTipo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 101);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 17);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Tipo de relatório:";
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipo.Location = new System.Drawing.Point(19, 97);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(144, 20);
+            this.lblTipo.TabIndex = 32;
+            this.lblTipo.Text = "Tipo de relatório:";
             // 
             // txtNumeroNote
             // 
-            this.txtNumeroNote.Font = new System.Drawing.Font("Louis George Cafe", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroNote.Location = new System.Drawing.Point(807, 97);
+            this.txtNumeroNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroNote.Location = new System.Drawing.Point(770, 97);
             this.txtNumeroNote.Margin = new System.Windows.Forms.Padding(2);
             this.txtNumeroNote.Name = "txtNumeroNote";
-            this.txtNumeroNote.Size = new System.Drawing.Size(148, 23);
+            this.txtNumeroNote.Size = new System.Drawing.Size(185, 23);
             this.txtNumeroNote.TabIndex = 31;
             this.txtNumeroNote.TextChanged += new System.EventHandler(this.txtNumeroNote_TextChanged);
             this.txtNumeroNote.Enter += new System.EventHandler(this.txtNumeroNote_Enter);
@@ -166,8 +166,8 @@
             // 
             // txtNomeAluno
             // 
-            this.txtNomeAluno.Font = new System.Drawing.Font("Louis George Cafe", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeAluno.Location = new System.Drawing.Point(606, 97);
+            this.txtNomeAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeAluno.Location = new System.Drawing.Point(579, 97);
             this.txtNomeAluno.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomeAluno.Name = "txtNomeAluno";
             this.txtNomeAluno.Size = new System.Drawing.Size(187, 23);
@@ -178,8 +178,8 @@
             // 
             // dtpDataDesejada
             // 
-            this.dtpDataDesejada.Font = new System.Drawing.Font("Louis George Cafe", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDataDesejada.Location = new System.Drawing.Point(267, 98);
+            this.dtpDataDesejada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataDesejada.Location = new System.Drawing.Point(267, 97);
             this.dtpDataDesejada.Name = "dtpDataDesejada";
             this.dtpDataDesejada.Size = new System.Drawing.Size(276, 22);
             this.dtpDataDesejada.TabIndex = 29;
@@ -222,7 +222,7 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Font = new System.Drawing.Font("Louis George Cafe", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Image = global::NoteCheck.Properties.Resources.seta;
             this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVoltar.Location = new System.Drawing.Point(11, 59);
@@ -239,11 +239,11 @@
             // 
             this.lblBoasVindas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBoasVindas.AutoSize = true;
-            this.lblBoasVindas.Font = new System.Drawing.Font("Bebas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBoasVindas.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBoasVindas.ForeColor = System.Drawing.Color.Black;
             this.lblBoasVindas.Location = new System.Drawing.Point(375, 59);
             this.lblBoasVindas.Name = "lblBoasVindas";
-            this.lblBoasVindas.Size = new System.Drawing.Size(224, 32);
+            this.lblBoasVindas.Size = new System.Drawing.Size(257, 31);
             this.lblBoasVindas.TabIndex = 8;
             this.lblBoasVindas.Text = "Historico de retirada";
             // 
@@ -364,7 +364,7 @@
         private System.Windows.Forms.PictureBox imgLogo;
         private System.Windows.Forms.TextBox txtNumeroNote;
         private System.Windows.Forms.TextBox txtNomeAluno;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.ComboBox cbxTipoRelatorio;
         private System.Windows.Forms.DateTimePicker dtpDataFinal;
         private System.Windows.Forms.DateTimePicker dtpDataInicial;
