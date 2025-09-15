@@ -16,7 +16,8 @@ namespace NoteCheck
             MySqlConnection conexao = null;
             try
             {
-                string data_source = "datasource=localhost; username=root; database=notecheck";
+                string data_source = "server=127.0.0.1;port=3306;uid=root;pwd=root;database=noteCheck;";
+
                 conexao = new MySqlConnection(data_source);
 
                 string sql = "CALL sp_notebooks_em_uso_excedendo_tempo();";

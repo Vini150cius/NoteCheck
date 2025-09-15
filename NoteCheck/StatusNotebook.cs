@@ -20,7 +20,8 @@ namespace NoteCheck
         MySqlConnection Conexao = null;
         public void listaGrid()
         {
-            string data_source = "datasource=localhost; username=root; database=notecheck";
+            string data_source = "server=127.0.0.1;port=3306;uid=root;pwd=root;database=noteCheck;";
+
             Conexao = new MySqlConnection(data_source);
             string strSQL = "SELECT * FROM notebook;";
 

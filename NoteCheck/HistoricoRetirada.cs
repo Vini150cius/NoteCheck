@@ -24,7 +24,8 @@ namespace NoteCheck
         public string numeroNotebook { get; set; }
         public void listaGrid()
         {
-            string data_source = "datasource=localhost; username=root; database=notecheck";
+            string data_source = "server=127.0.0.1;port=3306;uid=root;pwd=root;database=noteCheck;";
+
             Conexao = new MySqlConnection(data_source);
             string strSQL = "CALL sp_historico_listar(@dataRetirada, @nomeAluno, @numeroNotebook, @dataInicial, @dataFinal);";
             MySqlCommand comando = new MySqlCommand(strSQL, Conexao);

@@ -72,7 +72,8 @@ namespace NoteCheck
         private void RetirarNotebooks_Load(object sender, EventArgs e)
         {
 
-            string data_source = "server=127.0.0.1;port=3306;uid=root;pwd=root;database=noteCheck;";
+            string Conexao = "server=127.0.0.1;port=3306;uid=root;pwd=root;database=noteCheck;";
+
             using (var connection = new MySqlConnection(Conexao))
             {
                 try

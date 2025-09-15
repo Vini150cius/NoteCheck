@@ -143,8 +143,9 @@ namespace NoteCheck
                 MySqlConnection Conexao = null;
                 try
                 {
-                    string data_source = "datasource=localhost; username=root; database=notecheck";
-                    Conexao = new MySqlConnection(data_source);
+                string data_source = "server=127.0.0.1;port=3306;uid=root;pwd=root;database=noteCheck;";
+
+                Conexao = new MySqlConnection(data_source);
                     string sql = "CALL sp_professor_logar(@nomeProfessor, @senhaProfessor); ";
 
                     MySqlCommand comando = new MySqlCommand(sql, Conexao);
